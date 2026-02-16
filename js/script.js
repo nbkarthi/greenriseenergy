@@ -31,15 +31,19 @@
   // Mobile Navigation Toggle
   // ==========================================
   function toggleMobileMenu() {
-    menuToggle.classList.toggle('active');
-    navMobile.classList.toggle('active');
-    document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    if (menuToggle) menuToggle.classList.toggle('active');
+    if (navMobile) {
+      navMobile.classList.toggle('active');
+      document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    }
   }
 
   function closeMobileMenu() {
-    menuToggle.classList.remove('active');
-    navMobile.classList.remove('active');
-    document.body.style.overflow = '';
+    if (menuToggle) menuToggle.classList.remove('active');
+    if (navMobile) {
+      navMobile.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
   // ==========================================
@@ -335,7 +339,7 @@
 
     // Close mobile menu on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMobile.classList.contains('active')) {
+      if (e.key === 'Escape' && navMobile && navMobile.classList.contains('active')) {
         closeMobileMenu();
       }
     });
