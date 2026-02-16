@@ -1,257 +1,127 @@
+---
+layout: null
+title: Blog
+permalink: /blog/
+pagination:
+  enabled: true
+  per_page: 15
+  permalink: '/blog/page:num/'
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- SEO Meta Tags -->
-  <title>Blog - Greenrise Energy Solutions | Solar Energy Insights</title>
-  <meta name="description" content="Stay updated with the latest insights on solar energy, government incentives, case studies, and industry trends from Greenrise Energy Solutions.">
+  <title>Blog - Greenrise Energy Solutions</title>
+  <meta name="description" content="Latest insights on solar energy, government incentives, and industry updates from Greenrise Energy Solutions.">
   <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://greenriseenergy.com/blog/">
-  <meta property="og:title" content="Blog - Greenrise Energy Solutions">
-  <meta property="og:description" content="Stay updated with the latest insights on solar energy, government incentives, case studies, and industry trends.">
-
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://greenriseenergy.com/blog/">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232E7D32'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23F9A825'/%3E%3C/svg%3E">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="../css/style.css">
-
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
   <style>
-    /* Blog Page Specific Styles */
-    .coming-soon-section {
-      padding: var(--spacing-5xl) 0;
-      text-align: center;
-    }
-
-    .coming-soon-icon {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto var(--spacing-2xl);
-      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent) 100%);
-      border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .coming-soon-icon svg {
-      width: 60px;
-      height: 60px;
-      color: var(--color-white);
-    }
-
-    .coming-soon-section h2 {
-      font-size: var(--font-size-3xl);
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .coming-soon-section p {
-      font-size: var(--font-size-lg);
-      color: var(--color-gray-600);
-      max-width: 600px;
-      margin: 0 auto var(--spacing-xl);
-    }
-
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--spacing-xl);
-      margin-top: var(--spacing-3xl);
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .topic-card {
-      background-color: var(--color-white);
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-md);
-      transition: all var(--transition-base);
-    }
-
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .topic-icon {
-      width: 48px;
-      height: 48px;
-      background-color: var(--color-gray-100);
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--spacing-md);
-    }
-
-    .topic-icon svg {
-      width: 24px;
-      height: 24px;
-      color: var(--color-primary);
-    }
-
-    .topic-card h3 {
-      font-size: var(--font-size-lg);
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .topic-card p {
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-600);
-      margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .coming-soon-section {
-        padding: var(--spacing-4xl) 0;
-      }
-    }
+    .coming-soon-section { padding: var(--spacing-5xl) 0; text-align: center; }
+    .coming-soon-section ul { list-style: none; max-width: 720px; margin: 0 auto; padding: 0; text-align: left; }
+    .coming-soon-section li { border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0; }
+    .coming-soon-section li a { color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none; }
+    .coming-soon-section li a:hover { color: var(--color-primary); }
+    .coming-soon-section li p { margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm); }
+    .blog-pagination { max-width: 720px; margin: var(--spacing-2xl) auto 0; padding-top: var(--spacing-xl); border-top: 1px solid var(--color-gray-200); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); }
+    .blog-pagination a { color: var(--color-primary); font-weight: 600; }
+    .blog-pagination .disabled { color: var(--color-gray-400); pointer-events: none; }
   </style>
 </head>
 <body>
-  <!-- ==========================================
-       Header / Navigation
-       ========================================== -->
   <header class="header" role="banner">
     <div class="container header-inner">
-      <a href="../" class="logo" aria-label="Greenrise Energy Solutions - Home">
+      <a href="{{ '/' | relative_url }}" class="logo" aria-label="Greenrise Energy Solutions - Home">
         <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="24" cy="24" r="22" fill="#2E7D32"/>
           <path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/>
           <circle cx="24" cy="24" r="6" fill="#26A69A"/>
         </svg>
-        <div class="logo-text">
-          <span>Greenrise</span>
-          <span>Energy Solutions</span>
-        </div>
+        <div class="logo-text"><span>Greenrise</span><span>Energy Solutions</span></div>
       </a>
-
       <nav class="nav" role="navigation" aria-label="Main navigation">
         <ul class="nav-menu">
-          <li><a href="../" class="nav-link">Home</a></li>
-          <li><a href="../#services" class="nav-link">Services</a></li>
-          <li><a href="../#projects" class="nav-link">Projects</a></li>
-          <li><a href="../#about" class="nav-link">About</a></li>
-          <li><a href="./" class="nav-link active">Blog</a></li>
-          <li><a href="../#contact" class="nav-link">Contact</a></li>
+          <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
+          <li><a href="{{ '/#services' | relative_url }}" class="nav-link">Services</a></li>
+          <li><a href="{{ '/#projects' | relative_url }}" class="nav-link">Projects</a></li>
+          <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}" class="nav-link active">Blog</a></li>
+          <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
         </ul>
-        <a href="../#contact" class="btn btn-primary btn-sm nav-cta">Get Free Quote</a>
+        <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary btn-sm nav-cta">Get Free Quote</a>
       </nav>
-
-      <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
-
-    <!-- Mobile Navigation: Get Free Quote only -->
     <nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-      <a href="../#contact" class="btn btn-primary">Get Free Quote</a>
+      <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary">Get Free Quote</a>
     </nav>
   </header>
 
   <main role="main" style="padding-top: var(--header-height);">
-    <!-- Blog posts list: 15 per page, latest first -->
     <section class="coming-soon-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
       <div class="container">
-        <ul class="blog-posts-list" style="list-style: none; max-width: 720px; margin: 0; padding: 0; text-align: left;">
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-02-15-record-low-solar-tariffs-seci.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Record Low Solar Tariffs in Latest SECI Auctions</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">15 Feb 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-02-08-solar-storage-incentives-india.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Solar + Storage: Incentives and Pilot Projects in India</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">8 Feb 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-02-01-almm-list-update-india.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">ALMM List Update: Approved Solar Modules for India</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">1 Feb 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-01-25-tamil-nadu-new-solar-policy.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Tamil Nadu's New Solar Policy Highlights</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">25 Jan 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-01-18-solar-panel-price-trends-india.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Solar Panel Price Trends in India (Oct 2025–Feb 2026)</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">18 Jan 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-01-11-green-open-access-rules-solar.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Green Open Access Rules: Boon for C&I Solar</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">11 Jan 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2026-01-04-karnataka-vs-tamil-nadu-solar.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Karnataka vs Tamil Nadu: Which State Is Better for Solar?</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">4 Jan 2026</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-12-28-floating-solar-india-government.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Floating Solar in India: Government Push and Projects</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">28 Dec 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-12-21-terc-solar-tariff-order-tamil-nadu.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">TERC Solar Tariff Order: What It Means for Tamil Nadu</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">21 Dec 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-12-14-seci-rooftop-solar-tenders.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">SECI's Latest Rooftop Solar Tenders</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">14 Dec 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-12-07-india-solar-manufacturing-pli.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">India Solar Manufacturing: PLI Scheme Updates</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">7 Dec 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-11-30-tamil-nadu-net-metering-2025.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Tamil Nadu Net Metering Policy Changes 2025</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">30 Nov 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-11-23-pm-surya-ghar-muft-bijli-yojana.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">PM Surya Ghar Muft Bijli Yojana: Latest Guidelines</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">23 Nov 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-11-16-india-solar-park-tenders.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">India's New Solar Park Tenders: What You Need to Know</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">16 Nov 2025</p></li>
-          <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;"><a href="2025-10-15-tamil-nadu-rooftop-subsidy-oct-2025.html" style="color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none;">Tamil Nadu Rooftop Solar Subsidy Update October 2025</a><p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">15 Oct 2025</p></li>
+        <ul class="blog-posts-list">
+          {% for post in paginator.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <p>{{ post.date | date: "%-d %b %Y" }}</p>
+          </li>
+          {% endfor %}
         </ul>
-        <nav class="blog-pagination" aria-label="Blog pagination" style="max-width: 720px; margin: var(--spacing-2xl) 0 0; padding-top: var(--spacing-xl); border-top: 1px solid var(--color-gray-200); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md);">
-          <span style="color: var(--color-gray-600); font-size: var(--font-size-sm);">Page 1 of 1 (15 entries)</span>
-          <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
-            <span style="color: var(--color-gray-400); font-size: var(--font-size-sm);" aria-disabled="true">Previous</span>
-            <span style="font-weight: 600; color: var(--color-primary);">1</span>
-            <span style="color: var(--color-gray-400); font-size: var(--font-size-sm);" aria-disabled="true">Next</span>
+        {% if paginator.total_pages > 1 %}
+        <nav class="blog-pagination" aria-label="Blog pagination">
+          <span class="pagination-info">Page {{ paginator.page }} of {{ paginator.total_pages }} ({{ paginator.total_posts }} entries)</span>
+          <div style="display: flex; gap: var(--spacing-md); align-items: center;">
+            {% if paginator.previous_page %}
+              <a href="{{ paginator.previous_page_path | relative_url }}">Previous</a>
+            {% else %}
+              <span class="disabled">Previous</span>
+            {% endif %}
+            <span style="font-weight: 600; color: var(--color-primary);">{{ paginator.page }}</span>
+            {% if paginator.next_page %}
+              <a href="{{ paginator.next_page_path | relative_url }}">Next</a>
+            {% else %}
+              <span class="disabled">Next</span>
+            {% endif %}
           </div>
         </nav>
+        {% else %}
+        <nav class="blog-pagination" aria-label="Blog pagination">
+          <span class="pagination-info">Page 1 of 1 ({{ paginator.total_posts }} entries)</span>
+        </nav>
+        {% endif %}
       </div>
     </section>
   </main>
 
-  <!-- ==========================================
-       Footer
-       ========================================== -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="../" class="footer-logo">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="24" cy="24" r="22" fill="#2E7D32"/>
-              <path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/>
-              <circle cx="24" cy="24" r="6" fill="#26A69A"/>
-            </svg>
+          <a href="{{ '/' | relative_url }}" class="footer-logo">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="#2E7D32"/><path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/><circle cx="24" cy="24" r="6" fill="#26A69A"/></svg>
             <span>Greenrise Energy</span>
           </a>
           <p>Empowering homes and businesses with clean, reliable solar energy solutions across Southeast Asia.</p>
         </div>
-
         <div class="footer-column">
           <h4>Quick Links</h4>
-          <nav class="footer-links" aria-label="Footer quick links">
-            <a href="../">Home</a>
-            <a href="../#services">Services</a>
-            <a href="../#projects">Projects</a>
-            <a href="../#about">About Us</a>
-            <a href="../#contact">Contact</a>
-          </nav>
+          <nav class="footer-links"><a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/#services' | relative_url }}">Services</a><a href="{{ '/#projects' | relative_url }}">Projects</a><a href="{{ '/#about' | relative_url }}">About Us</a><a href="{{ '/#contact' | relative_url }}">Contact</a></nav>
         </div>
-
         <div class="footer-column">
           <h4>Services</h4>
-          <nav class="footer-links" aria-label="Footer services">
-            <a href="../#services">Residential Solar</a>
-            <a href="../#services">Commercial Solar</a>
-            <a href="../#services">Ground-Mounted</a>
-            <a href="../#services">Solar Parks</a>
-            <a href="../#services">O&M Services</a>
-          </nav>
+          <nav class="footer-links"><a href="{{ '/#services' | relative_url }}">Residential Solar</a><a href="{{ '/#services' | relative_url }}">Commercial Solar</a><a href="{{ '/#services' | relative_url }}">Ground-Mounted</a><a href="{{ '/#services' | relative_url }}">Solar Parks</a><a href="{{ '/#services' | relative_url }}">O&M Services</a></nav>
         </div>
-
         <div class="footer-column">
           <h4>Resources</h4>
-          <nav class="footer-links" aria-label="Footer resources">
-            <a href="./">Blog</a>
-            <a href="#">FAQs</a>
-            <a href="#">Solar Calculator</a>
-            <a href="#">Case Studies</a>
-            <a href="#">Downloads</a>
-          </nav>
+          <nav class="footer-links"><a href="{{ '/blog/' | relative_url }}">Blog</a><a href="#">FAQs</a><a href="#">Solar Calculator</a><a href="#">Case Studies</a><a href="#">Downloads</a></nav>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p>&copy; 2026 Greenrise Energy Solutions. All rights reserved.</p>
         <div class="footer-bottom-links">
@@ -262,8 +132,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="../js/script.js"></script>
+  <script src="{{ '/js/script.js' | relative_url }}"></script>
 </body>
 </html>
