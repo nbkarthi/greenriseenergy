@@ -117,39 +117,6 @@
       margin: 0;
     }
 
-    .notify-section {
-      background-color: var(--color-gray-100);
-      padding: var(--spacing-4xl) 0;
-      margin-top: var(--spacing-4xl);
-    }
-
-    .notify-form {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .notify-form .form-group {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .notify-form input {
-      width: 100%;
-      padding: var(--spacing-md);
-      border: 1px solid var(--color-gray-300);
-      border-radius: var(--radius-md);
-      font-size: var(--font-size-base);
-    }
-
-    .notify-form input:focus {
-      outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
-    }
-
-    .notify-form .btn {
-      width: 100%;
-    }
-
     @media (max-width: 768px) {
       .coming-soon-section {
         padding: var(--spacing-4xl) 0;
@@ -202,7 +169,7 @@
 
   <main role="main" style="padding-top: var(--header-height);">
     <!-- Blog posts list (no heading) -->
-    <section class="coming-soon-section" style="padding-top: var(--spacing-3xl);">
+    <section class="coming-soon-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
       <div class="container">
         <ul class="blog-posts-list" style="list-style: none; max-width: 720px; margin: 0; padding: 0; text-align: left;">
           <li style="border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0;">
@@ -214,23 +181,6 @@
             <p style="margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm);">17 Feb 2026 · From early adopter to one of India's top solar states.</p>
           </li>
         </ul>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         Notify Section
-         ========================================== -->
-    <section class="notify-section">
-      <div class="container">
-        <h3 style="text-align: center; margin-bottom: var(--spacing-md);">Get Notified</h3>
-        <p style="text-align: center; color: var(--color-gray-600); margin-bottom: var(--spacing-xl);">Be the first to know when we publish new content.</p>
-
-        <form class="notify-form" id="notify-form">
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address for blog notifications">
-          </div>
-          <button type="submit" class="btn btn-primary">Notify Me</button>
-        </form>
       </div>
     </section>
   </main>
@@ -300,16 +250,5 @@
 
   <!-- JavaScript -->
   <script src="../js/script.js"></script>
-  <script>
-    // Blog page specific script
-    document.getElementById('notify-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = this.querySelector('input[type="email"]').value;
-      if (email) {
-        alert('Thank you! We\'ll notify you when our blog launches.');
-        this.reset();
-      }
-    });
-  </script>
 </body>
 </html>
