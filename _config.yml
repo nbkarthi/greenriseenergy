@@ -1,0 +1,43 @@
+# Jekyll + Minimal Mistakes (blog)
+# https://mmistakes.github.io/minimal-mistakes/
+
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "mint" # green tint for energy/solar
+
+# Site
+locale: "en-US"
+title: "Greenrise Energy Solutions"
+title_separator: "|"
+description: "Solar EPC solutions for homes, businesses & industries. Clean, reliable solar energy across India."
+url: "https://greenriseenergy.com"
+baseurl: ""
+repository: "YOUR_GITHUB_USERNAME/greenriseenergy"  # set to your GitHub user/repo
+
+# Plugins (GitHub Pages supports these)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-remote-theme
+
+# Defaults for posts (Minimal Mistakes)
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      share: true
+      related: true
+      comments: false
+
+# Permalink for posts
+permalink: /blog/:year/:month/:day/:title/
+
+# Build
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: "\n\n"
