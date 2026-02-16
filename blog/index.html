@@ -65,24 +65,44 @@ pagination:
   <main role="main" style="padding-top: var(--header-height);">
     <section class="coming-soon-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
       <div class="container">
+        {% comment %} Use paginator when plugin runs (e.g. GitHub Actions); else show site.posts so posts always appear {% endcomment %}
+        {% if paginator.posts.size > 0 %}
+          {% assign posts_to_show = paginator.posts %}
+          {% assign total_posts = paginator.total_posts %}
+          {% assign total_pages = paginator.total_pages %}
+          {% assign current_page = paginator.page %}
+        {% else %}
+          {% assign total_posts = site.posts.size %}
+          {% assign total_pages = 1 %}
+          {% assign current_page = 1 %}
+        {% endif %}
         <ul class="blog-posts-list">
-          {% for post in paginator.posts %}
+          {% if paginator.posts.size > 0 %}
+          {% for post in posts_to_show %}
           <li>
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             <p>{{ post.date | date: "%-d %b %Y" }}</p>
           </li>
           {% endfor %}
+          {% else %}
+          {% for post in site.posts limit: 15 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <p>{{ post.date | date: "%-d %b %Y" }}</p>
+          </li>
+          {% endfor %}
+          {% endif %}
         </ul>
-        {% if paginator.total_pages > 1 %}
+        {% if total_pages > 1 %}
         <nav class="blog-pagination" aria-label="Blog pagination">
-          <span class="pagination-info">Page {{ paginator.page }} of {{ paginator.total_pages }} ({{ paginator.total_posts }} entries)</span>
+          <span class="pagination-info">Page {{ current_page }} of {{ total_pages }} ({{ total_posts }} entries)</span>
           <div style="display: flex; gap: var(--spacing-md); align-items: center;">
             {% if paginator.previous_page %}
               <a href="{{ paginator.previous_page_path | relative_url }}">Previous</a>
             {% else %}
               <span class="disabled">Previous</span>
             {% endif %}
-            <span style="font-weight: 600; color: var(--color-primary);">{{ paginator.page }}</span>
+            <span style="font-weight: 600; color: var(--color-primary);">{{ current_page }}</span>
             {% if paginator.next_page %}
               <a href="{{ paginator.next_page_path | relative_url }}">Next</a>
             {% else %}
@@ -92,7 +112,7 @@ pagination:
         </nav>
         {% else %}
         <nav class="blog-pagination" aria-label="Blog pagination">
-          <span class="pagination-info">Page 1 of 1 ({{ paginator.total_posts }} entries)</span>
+          <span class="pagination-info">Page 1 of {{ total_pages }} ({{ total_posts }} entries)</span>
         </nav>
         {% endif %}
       </div>
