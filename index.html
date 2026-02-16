@@ -916,49 +916,40 @@
 
           <!-- Contact Form -->
           <div class="contact-form-wrapper animate-on-scroll">
-            <form class="contact-form" action="#" method="POST" novalidate>
+            <form class="contact-form" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="_blank" novalidate>
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Full Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="name" name="name" placeholder="John Doe" required aria-required="true">
+                  <input type="text" id="name" name="entry.NAME_ENTRY_ID" placeholder="John Doe" required aria-required="true">
                 </div>
                 <div class="form-group">
                   <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                  <input type="email" id="email" name="email" placeholder="john@example.com" required aria-required="true">
+                  <input type="email" id="email" name="entry.EMAIL_ENTRY_ID" placeholder="john@example.com" required aria-required="true">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" placeholder="+65 9123 4567">
+                  <input type="tel" id="phone" name="entry.PHONE_ENTRY_ID" value="+91" placeholder="+91">
                 </div>
                 <div class="form-group">
                   <label for="project-type">Project Type</label>
-                  <select id="project-type" name="project-type">
+                  <select id="project-type" name="entry.PROJECT_ENTRY_ID">
                     <option value="">Select a project type</option>
-                    <option value="residential">Residential Rooftop</option>
-                    <option value="commercial">Commercial/Industrial Rooftop</option>
-                    <option value="ground-mounted">Ground-Mounted</option>
-                    <option value="utility-scale">Utility-Scale/Solar Park</option>
-                    <option value="om">Operation & Maintenance</option>
-                    <option value="consulting">Consulting/Feasibility</option>
+                    <option value="Residential Rooftop">Residential Rooftop</option>
+                    <option value="Commercial/Industrial Rooftop">Commercial/Industrial Rooftop</option>
+                    <option value="Ground-Mounted">Ground-Mounted</option>
+                    <option value="Utility-Scale/Solar Park">Utility-Scale/Solar Park</option>
+                    <option value="Operation & Maintenance">Operation & Maintenance</option>
+                    <option value="Consulting/Feasibility">Consulting/Feasibility</option>
                   </select>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="message">Message <span aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" placeholder="Tell us about your project, property size, current electricity bills, or any questions..." required aria-required="true"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-method">Preferred Contact Method</label>
-                <select id="contact-method" name="contact-method">
-                  <option value="email">Email</option>
-                  <option value="phone">Phone Call</option>
-                  <option value="whatsapp">WhatsApp</option>
-                </select>
+                <textarea id="message" name="entry.MESSAGE_ENTRY_ID" placeholder="Tell us about your project, property size, current electricity bills, or any questions..." required aria-required="true"></textarea>
               </div>
 
               <div class="form-submit">
@@ -967,7 +958,7 @@
                     <line x1="22" y1="2" x2="11" y2="13"/>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                   </svg>
-                  Send Message
+                  Submit
                 </button>
               </div>
             </form>
