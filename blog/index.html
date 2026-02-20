@@ -1,9 +1,7 @@
 ---
 layout: null
-title: Blog
+title: Renewable Knowledge Hub
 permalink: /blog/
-pagination:
-  enabled: true
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +9,10 @@ pagination:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% if paginator.page > 1 %}Renewable Knowledge Hub - Page {{ paginator.page }}{% else %}Renewable Knowledge Hub{% endif %} - Greenrise Energy Solutions</title>
+  <title>Renewable Knowledge Hub - Greenrise Energy Solutions</title>
   <meta name="description" content="Latest insights on solar energy, government incentives, and industry updates from Greenrise Energy Solutions.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greenriseenergy.com{% if paginator.page > 1 %}/blog/page/{{ paginator.page }}/{% else %}/blog/{% endif %}">
+  <link rel="canonical" href="https://greenriseenergy.com/blog/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232E7D32'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23F9A825'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,9 +26,9 @@ pagination:
     .blog-posts-list li a:hover { color: var(--color-primary); }
     .blog-posts-list li .post-meta { margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm); line-height: 1.4; }
     .blog-pagination { max-width: 720px; margin: var(--spacing-2xl) auto 0; padding-top: var(--spacing-xl); border-top: 1px solid var(--color-gray-200); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); }
-    .blog-pagination a { color: var(--color-primary); font-weight: 600; text-decoration: none; }
-    .blog-pagination a:hover { text-decoration: underline; }
-    .blog-pagination .disabled { color: var(--color-gray-400); pointer-events: none; }
+    .blog-pagination a, .blog-pagination button { color: var(--color-primary); font-weight: 600; text-decoration: none; background: none; border: none; cursor: pointer; font-size: var(--font-size-base); font-family: inherit; padding: 0; }
+    .blog-pagination a:hover, .blog-pagination button:hover { text-decoration: underline; }
+    .blog-pagination .disabled { color: var(--color-gray-400); pointer-events: none; cursor: default; }
     .pagination-info { font-size: var(--font-size-sm); color: var(--color-gray-600); }
     .pagination-nav { display: flex; gap: var(--spacing-md); align-items: center; }
     .pagination-current { font-weight: 600; color: var(--color-primary); }
@@ -70,52 +68,26 @@ pagination:
       <div class="container">
         <h1 class="section-title">Renewable Knowledge Hub</h1>
 
-        {% comment %} Use paginator when plugin runs (GitHub Actions build); fallback to site.posts for local dev {% endcomment %}
-        {% if paginator.posts.size > 0 %}
-          {% assign posts_list = paginator.posts %}
-          {% assign total_posts = paginator.total_posts %}
-          {% assign total_pages = paginator.total_pages %}
-          {% assign current_page = paginator.page %}
-        {% else %}
-          {% assign posts_list = site.posts | slice: 0, 10 %}
-          {% assign total_posts = site.posts.size %}
-          {% assign current_page = 1 %}
-          {% assign total_pages = total_posts | divided_by: 10.0 | ceil %}
-          {% if total_pages < 1 %}{% assign total_pages = 1 %}{% endif %}
-        {% endif %}
-
-        {% if posts_list.size > 0 %}
-        <ul class="blog-posts-list">
-          {% for post in posts_list %}
-          <li>
+        {% if site.posts.size > 0 %}
+        <ul class="blog-posts-list" id="blog-posts-list">
+          {% for post in site.posts %}
+          <li data-post-index="{{ forloop.index0 }}">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             <p class="post-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.excerpt %} &middot; {{ post.excerpt | strip_html | truncate: 120 }}{% endif %}</p>
           </li>
           {% endfor %}
         </ul>
-        {% else %}
-        <p style="text-align: center; color: var(--color-gray-600);">No blog posts yet. Check back soon!</p>
-        {% endif %}
 
-        {% if total_pages > 1 %}
-        <nav class="blog-pagination" aria-label="Blog pagination">
-          <span class="pagination-info">Page {{ current_page }} of {{ total_pages }} ({{ total_posts }} posts)</span>
+        <nav class="blog-pagination" id="blog-pagination" aria-label="Blog pagination" style="display:none;">
+          <span class="pagination-info" id="pagination-info"></span>
           <div class="pagination-nav">
-            {% if paginator.previous_page %}
-              <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous page">&larr; Previous</a>
-            {% else %}
-              <span class="disabled">&larr; Previous</span>
-            {% endif %}
-
-            <span class="pagination-current">{{ current_page }}</span>
-
-            {% if paginator.next_page %}
-              <a href="{{ paginator.next_page_path | relative_url }}" aria-label="Next page">Next &rarr;</a>
-            {% else %}
-              <span class="disabled">Next &rarr;</span>
-            {% endif %}
+            <button id="pagination-prev" aria-label="Previous page">&larr; Previous</button>
+            <span class="pagination-current" id="pagination-current"></span>
+            <button id="pagination-next" aria-label="Next page">Next &rarr;</button>
           </div>
         </nav>
+        {% else %}
+        <p style="text-align: center; color: var(--color-gray-600);">No blog posts yet. Check back soon!</p>
         {% endif %}
       </div>
     </section>
@@ -155,5 +127,43 @@ pagination:
     </div>
   </footer>
   <script src="{{ '/js/script.js' | relative_url }}"></script>
+  <script>
+  (function() {
+    var PER_PAGE = 10;
+    var list = document.getElementById('blog-posts-list');
+    if (!list) return;
+    var items = list.querySelectorAll('li[data-post-index]');
+    var totalPosts = items.length;
+    var totalPages = Math.ceil(totalPosts / PER_PAGE);
+    if (totalPages <= 1) return;
+
+    var pagination = document.getElementById('blog-pagination');
+    var info = document.getElementById('pagination-info');
+    var current = document.getElementById('pagination-current');
+    var prevBtn = document.getElementById('pagination-prev');
+    var nextBtn = document.getElementById('pagination-next');
+    var page = 1;
+
+    function showPage(p) {
+      page = p;
+      var start = (page - 1) * PER_PAGE;
+      var end = start + PER_PAGE;
+      for (var i = 0; i < items.length; i++) {
+        items[i].style.display = (i >= start && i < end) ? '' : 'none';
+      }
+      info.textContent = 'Page ' + page + ' of ' + totalPages + ' (' + totalPosts + ' posts)';
+      current.textContent = page;
+      prevBtn.classList.toggle('disabled', page <= 1);
+      nextBtn.classList.toggle('disabled', page >= totalPages);
+      pagination.style.display = '';
+      window.scrollTo({ top: list.offsetTop - 100, behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', function() { if (page > 1) showPage(page - 1); });
+    nextBtn.addEventListener('click', function() { if (page < totalPages) showPage(page + 1); });
+
+    showPage(1);
+  })();
+  </script>
 </body>
 </html>

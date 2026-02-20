@@ -13,23 +13,12 @@ url: "https://greenriseenergy.com"
 baseurl: ""
 repository: "YOUR_GITHUB_USERNAME/greenriseenergy"  # set to your GitHub user/repo
 
-# Plugins (jekyll-paginate-v2 requires GitHub Actions build for GitHub Pages)
+# Plugins
 plugins:
-  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-remote-theme
-
-# Pagination (10 per page for blog)
-pagination:
-  enabled: true
-  per_page: 10
-  permalink: '/page/:num/'
-  title: ':title - page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
 
 # Defaults for posts (Minimal Mistakes)
 defaults:
