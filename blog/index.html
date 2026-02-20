@@ -4,8 +4,6 @@ title: Blog
 permalink: /blog/
 pagination:
   enabled: true
-  per_page: 10
-  permalink: '/blog/page:num/'
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +11,10 @@ pagination:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% if paginator.page > 1 %}Blog - Page {{ paginator.page }}{% else %}Blog{% endif %} - Greenrise Energy Solutions</title>
+  <title>{% if paginator.page > 1 %}Renewable Knowledge Hub - Page {{ paginator.page }}{% else %}Renewable Knowledge Hub{% endif %} - Greenrise Energy Solutions</title>
   <meta name="description" content="Latest insights on solar energy, government incentives, and industry updates from Greenrise Energy Solutions.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greenriseenergy.com{% if paginator.page > 1 %}/blog/page{{ paginator.page }}/{% else %}/blog/{% endif %}">
+  <link rel="canonical" href="https://greenriseenergy.com{% if paginator.page > 1 %}/blog/page/{{ paginator.page }}/{% else %}/blog/{% endif %}">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232E7D32'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23F9A825'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -70,7 +68,7 @@ pagination:
   <main role="main" style="padding-top: var(--header-height);">
     <section class="blog-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
       <div class="container">
-        <h1 class="section-title">Blog</h1>
+        <h1 class="section-title">Renewable Knowledge Hub</h1>
 
         {% comment %} Use paginator when plugin runs (GitHub Actions build); fallback to site.posts for local dev {% endcomment %}
         {% if paginator.posts.size > 0 %}
