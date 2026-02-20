@@ -31,7 +31,11 @@
   // Mobile Navigation Toggle
   // ==========================================
   function toggleMobileMenu() {
-    if (menuToggle) menuToggle.classList.toggle('active');
+    if (menuToggle) {
+      menuToggle.classList.toggle('active');
+      var expanded = menuToggle.classList.contains('active');
+      menuToggle.setAttribute('aria-expanded', expanded);
+    }
     if (navMobile) {
       navMobile.classList.toggle('active');
       document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
@@ -39,7 +43,10 @@
   }
 
   function closeMobileMenu() {
-    if (menuToggle) menuToggle.classList.remove('active');
+    if (menuToggle) {
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
     if (navMobile) {
       navMobile.classList.remove('active');
       document.body.style.overflow = '';
@@ -332,8 +339,11 @@
       menuToggle.addEventListener('click', toggleMobileMenu);
     }
 
-    // Close mobile menu on link click
+    // Close mobile menu on link click (desktop + mobile nav links)
     navLinks.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    document.querySelectorAll('.nav-mobile-menu .nav-link').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
     });
 

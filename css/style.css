@@ -1412,29 +1412,87 @@ p {
     display: flex;
   }
 
-  /* Mobile menu: Get Free Quote only */
+  .nav-cta {
+    display: none;
+  }
+
   .nav-mobile {
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--color-white);
+    background: linear-gradient(160deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, var(--color-accent-dark) 100%);
     display: none;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: var(--spacing-2xl);
+    justify-content: flex-start;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
     z-index: 999;
+    overflow-y: auto;
   }
 
   .nav-mobile.active {
     display: flex;
   }
 
-  .nav-mobile .btn {
+  .nav-mobile-menu {
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    margin: 0 0 var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-mobile-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-mobile-menu li:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-mobile-menu .nav-link {
+    display: block;
+    padding: var(--spacing-xl) var(--spacing-md);
     font-size: var(--font-size-lg);
-    padding: var(--spacing-lg) var(--spacing-2xl);
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .nav-mobile-menu .nav-link:hover {
+    color: var(--color-white);
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-mobile-menu .nav-link.active {
+    color: var(--color-highlight);
+    background-color: rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-mobile-menu .nav-link::after {
+    display: none;
+  }
+
+  .nav-mobile .btn {
+    width: 100%;
+    max-width: 400px;
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    text-align: center;
+    background-color: var(--color-highlight);
+    color: var(--color-gray-900);
+  }
+
+  .nav-mobile .btn:hover {
+    background-color: var(--color-highlight-dark);
   }
 
   .about-grid,

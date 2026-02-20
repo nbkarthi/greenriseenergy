@@ -15,10 +15,14 @@
     .post-wrap { padding: calc(var(--header-height) + var(--spacing-3xl)) var(--spacing-lg) var(--spacing-4xl); max-width: 720px; margin: 0 auto; }
     .post-wrap .back-link { display: inline-block; color: var(--color-primary); font-weight: 600; margin-bottom: var(--spacing-xl); text-decoration: none; }
     .post-wrap .back-link:hover { text-decoration: underline; }
-    .post-wrap h1 { font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm); color: var(--color-gray-900); }
+    .post-wrap h1 { font-size: var(--font-size-2xl); margin-bottom: var(--spacing-sm); color: var(--color-gray-900); word-wrap: break-word; }
     .post-wrap .post-date { font-size: var(--font-size-sm); color: var(--color-gray-500); margin-bottom: var(--spacing-xl); }
-    .post-wrap .post-body p { margin-bottom: var(--spacing-lg); color: var(--color-gray-700); }
+    .post-wrap .post-body p { margin-bottom: var(--spacing-lg); color: var(--color-gray-700); line-height: 1.7; }
     .post-wrap .post-body h2 { font-size: var(--font-size-xl); margin: var(--spacing-2xl) 0 var(--spacing-md); color: var(--color-gray-900); }
+    @media (max-width: 768px) {
+      .post-wrap { padding: calc(var(--header-height) + var(--spacing-xl)) var(--spacing-md) var(--spacing-3xl); }
+      .post-wrap h1 { font-size: var(--font-size-xl); }
+    }
   </style>
 </head>
 <body>
@@ -46,6 +50,14 @@
       <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
     <nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+      <ul class="nav-mobile-menu">
+        <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
+        <li><a href="{{ '/#services' | relative_url }}" class="nav-link">Services</a></li>
+        <li><a href="{{ '/#projects' | relative_url }}" class="nav-link">Projects</a></li>
+        <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link active">Blog</a></li>
+        <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
+      </ul>
       <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary">Get Free Quote</a>
     </nav>
   </header>
