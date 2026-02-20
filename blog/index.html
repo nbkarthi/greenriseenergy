@@ -13,24 +13,29 @@ pagination:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Blog - Greenrise Energy Solutions</title>
+  <title>{% if paginator.page > 1 %}Blog - Page {{ paginator.page }}{% else %}Blog{% endif %} - Greenrise Energy Solutions</title>
   <meta name="description" content="Latest insights on solar energy, government incentives, and industry updates from Greenrise Energy Solutions.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greenriseenergy.com/blog/">
+  <link rel="canonical" href="https://greenriseenergy.com{% if paginator.page > 1 %}/blog/page{{ paginator.page }}/{% else %}/blog/{% endif %}">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232E7D32'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23F9A825'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
   <style>
-    .coming-soon-section { padding: var(--spacing-5xl) 0; text-align: center; }
-    .coming-soon-section ul { list-style: none; max-width: 720px; margin: 0 auto; padding: 0; text-align: left; }
-    .coming-soon-section li { border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0; }
-    .coming-soon-section li a { color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none; }
-    .coming-soon-section li a:hover { color: var(--color-primary); }
-    .coming-soon-section li .post-meta { margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm); line-height: 1.4; }
+    .blog-section { padding: var(--spacing-5xl) 0; }
+    .blog-section .section-title { text-align: center; font-size: var(--font-size-3xl); margin-bottom: var(--spacing-3xl); color: var(--color-gray-900); }
+    .blog-posts-list { list-style: none; max-width: 720px; margin: 0 auto; padding: 0; text-align: left; }
+    .blog-posts-list li { border-bottom: 1px solid var(--color-gray-200); padding: var(--spacing-lg) 0; }
+    .blog-posts-list li a { color: var(--color-gray-900); font-weight: 600; font-size: var(--font-size-lg); text-decoration: none; }
+    .blog-posts-list li a:hover { color: var(--color-primary); }
+    .blog-posts-list li .post-meta { margin: var(--spacing-sm) 0 0; color: var(--color-gray-600); font-size: var(--font-size-sm); line-height: 1.4; }
     .blog-pagination { max-width: 720px; margin: var(--spacing-2xl) auto 0; padding-top: var(--spacing-xl); border-top: 1px solid var(--color-gray-200); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); }
-    .blog-pagination a { color: var(--color-primary); font-weight: 600; }
+    .blog-pagination a { color: var(--color-primary); font-weight: 600; text-decoration: none; }
+    .blog-pagination a:hover { text-decoration: underline; }
     .blog-pagination .disabled { color: var(--color-gray-400); pointer-events: none; }
+    .pagination-info { font-size: var(--font-size-sm); color: var(--color-gray-600); }
+    .pagination-nav { display: flex; gap: var(--spacing-md); align-items: center; }
+    .pagination-current { font-weight: 600; color: var(--color-primary); }
   </style>
 </head>
 <body>
@@ -63,61 +68,55 @@ pagination:
   </header>
 
   <main role="main" style="padding-top: var(--header-height);">
-    <section class="coming-soon-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
+    <section class="blog-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
       <div class="container">
-        {% comment %} Use paginator when plugin runs (e.g. GitHub Actions); else show site.posts so posts always appear {% endcomment %}
+        <h1 class="section-title">Blog</h1>
+
+        {% comment %} Use paginator when plugin runs (GitHub Actions build); fallback to site.posts for local dev {% endcomment %}
         {% if paginator.posts.size > 0 %}
-          {% assign posts_to_show = paginator.posts %}
+          {% assign posts_list = paginator.posts %}
           {% assign total_posts = paginator.total_posts %}
           {% assign total_pages = paginator.total_pages %}
           {% assign current_page = paginator.page %}
         {% else %}
+          {% assign posts_list = site.posts | slice: 0, 10 %}
           {% assign total_posts = site.posts.size %}
           {% assign current_page = 1 %}
           {% assign total_pages = total_posts | divided_by: 10.0 | ceil %}
           {% if total_pages < 1 %}{% assign total_pages = 1 %}{% endif %}
         {% endif %}
+
+        {% if posts_list.size > 0 %}
         <ul class="blog-posts-list">
-          {% if paginator.posts.size > 0 %}
-          {% for post in posts_to_show %}
+          {% for post in posts_list %}
           <li>
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            <p class="post-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.excerpt %} · {{ post.excerpt | strip_html | truncate: 120 }}{% endif %}</p>
+            <p class="post-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.excerpt %} &middot; {{ post.excerpt | strip_html | truncate: 120 }}{% endif %}</p>
           </li>
           {% endfor %}
-          {% else %}
-          {% for post in site.posts limit: 10 %}
-          <li>
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            <p class="post-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.excerpt %} · {{ post.excerpt | strip_html | truncate: 120 }}{% endif %}</p>
-          </li>
-          {% endfor %}
-          {% endif %}
         </ul>
+        {% else %}
+        <p style="text-align: center; color: var(--color-gray-600);">No blog posts yet. Check back soon!</p>
+        {% endif %}
+
         {% if total_pages > 1 %}
         <nav class="blog-pagination" aria-label="Blog pagination">
-          <span class="pagination-info">Page {{ current_page }} of {{ total_pages }} ({{ total_posts }} entries)</span>
-          <div style="display: flex; gap: var(--spacing-md); align-items: center;">
+          <span class="pagination-info">Page {{ current_page }} of {{ total_pages }} ({{ total_posts }} posts)</span>
+          <div class="pagination-nav">
             {% if paginator.previous_page %}
-              <a href="{{ paginator.previous_page_path | relative_url }}">Previous</a>
-            {% elsif current_page > 1 %}
-              <a href="{% if current_page == 2 %}{{ '/blog/' | relative_url }}{% else %}{{ '/blog/page' | append: current_page | minus: 1 | append: '/' | relative_url }}{% endif %}">Previous</a>
+              <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous page">&larr; Previous</a>
             {% else %}
-              <span class="disabled">Previous</span>
+              <span class="disabled">&larr; Previous</span>
             {% endif %}
-            <span style="font-weight: 600; color: var(--color-primary);">{{ current_page }}</span>
+
+            <span class="pagination-current">{{ current_page }}</span>
+
             {% if paginator.next_page %}
-              <a href="{{ paginator.next_page_path | relative_url }}">Next</a>
-            {% elsif current_page < total_pages %}
-              <a href="{{ '/blog/page' | append: current_page | plus: 1 | append: '/' | relative_url }}">Next</a>
+              <a href="{{ paginator.next_page_path | relative_url }}" aria-label="Next page">Next &rarr;</a>
             {% else %}
-              <span class="disabled">Next</span>
+              <span class="disabled">Next &rarr;</span>
             {% endif %}
           </div>
-        </nav>
-        {% else %}
-        <nav class="blog-pagination" aria-label="Blog pagination">
-          <span class="pagination-info">Page 1 of {{ total_pages }} ({{ total_posts }} entries)</span>
         </nav>
         {% endif %}
       </div>
