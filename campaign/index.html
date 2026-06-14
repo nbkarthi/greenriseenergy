@@ -212,7 +212,7 @@
                 <h1>Go Solar Today</h1>
                 <p>Register for our exclusive campaign and unlock premium savings on your energy bills.</p>
             </div>
-            <form id="campaignForm">
+            <form id="campaignForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="e.g. Rajesh Kumar" required>
@@ -252,18 +252,38 @@
     </div>
 
     <script>
-        document.getElementById('campaignForm').addEventListener('submit', (e) => {
+        document.getElementById('campaignForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            const form = e.target;
             const btn = document.getElementById('submitBtn');
             btn.style.opacity = '0.8';
             btn.style.cursor = 'not-allowed';
             btn.querySelector('span').textContent = 'Processing...';
 
-            // Simulate form submission
-            setTimeout(() => {
-                document.getElementById('formContainer').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-            }, 1200);
+            // Submit form to a static form provider (like Formspree) via AJAX
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                if (response.ok) {
+                    document.getElementById('formContainer').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                    btn.querySelector('span').textContent = 'Unlock Your Savings';
+                }
+            } catch (error) {
+                alert("Oops! There was a network error. Please try again.");
+                btn.style.opacity = '1';
+                btn.style.cursor = 'pointer';
+                btn.querySelector('span').textContent = 'Unlock Your Savings';
+            }
         });
     </script>
 </body>
