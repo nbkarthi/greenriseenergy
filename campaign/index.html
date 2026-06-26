@@ -296,7 +296,23 @@
                     if (window.turnstile) window.turnstile.reset();
                     resetBtn(btn);
                 } else {
-                    alert('Oops! There was a problem submitting your form.');
+                    let errorMessage = 'Oops! There was a problem submitting your form.';
+                    try {
+                        const errorData = await response.json();
+                        if (errorData && errorData.detail) {
+                            if (typeof errorData.detail === 'string') {
+                                errorMessage = errorData.detail;
+                            } else if (Array.isArray(errorData.detail)) {
+                                errorMessage = errorData.detail.map(err => {
+                                    const field = err.loc && err.loc.length > 0 ? err.loc[err.loc.length - 1] : 'Error';
+                                    return `${field}: ${err.msg}`;
+                                }).join('\n');
+                            }
+                        }
+                    } catch (e) {
+                        // Ignore JSON parse errors and use default message
+                    }
+                    alert(errorMessage);
                     resetBtn(btn);
                 }
             } catch (error) {
