@@ -257,6 +257,12 @@
     <script>
         const API_URL = 'https://app.greenriseenergy.com/api/leads';
 
+        function getVisitorId() {
+            let id = localStorage.getItem('gr_visitor_id');
+            if (!id) { id = crypto.randomUUID(); localStorage.setItem('gr_visitor_id', id); }
+            return id;
+        }
+
         function resetBtn(btn) {
             btn.style.opacity = '1';
             btn.style.cursor = 'pointer';
@@ -271,6 +277,7 @@
             btn.querySelector('span').textContent = 'Processing...';
 
             const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
+            const utm = new URLSearchParams(location.search);
 
             const payload = {
                 name: document.getElementById('name').value,
@@ -279,6 +286,10 @@
                 address: document.getElementById('address_1').value,
                 city: document.getElementById('town').value,
                 source: 'campaign',
+                utm_source: utm.get('utm_source') || null,
+                utm_medium: utm.get('utm_medium') || null,
+                utm_campaign: utm.get('utm_campaign') || null,
+                visitor_id: getVisitorId(),
                 'cf-turnstile-response': turnstileToken,
             };
 
