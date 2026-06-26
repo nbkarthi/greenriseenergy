@@ -219,15 +219,9 @@
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="e.g. Rajesh Kumar" required>
                 </div>
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="98765 43210" required pattern="[6-9][0-9]{9}" maxlength="10" inputmode="numeric" title="Enter a 10-digit mobile number">
-                    </div>
-                    <div class="form-group">
-                        <label for="kw">System Size (kW) — optional</label>
-                        <input type="number" id="kw" name="kw" placeholder="e.g. 5" min="1">
-                    </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="98765 43210" required pattern="[6-9][0-9]{9}" maxlength="10" inputmode="numeric" title="Enter a 10-digit mobile number">
                 </div>
                 <div class="form-group">
                     <label for="address_1">Address Line 1</label>
@@ -236,6 +230,10 @@
                 <div class="form-group">
                     <label for="town">Town / City</label>
                     <input type="text" id="town" name="town" placeholder="Chennai" required>
+                </div>
+                <div class="form-group">
+                    <label for="monthly_bill">Average Monthly Electricity Bill (₹)</label>
+                    <input type="number" id="monthly_bill" name="monthly_bill" placeholder="e.g. 3000" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
                 </div>
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAADrXsJDarvzyJpvB" style="display: flex; justify-content: center; margin-bottom: 16px;"></div>
                 <button type="submit" class="submit-btn" id="submitBtn">
@@ -282,7 +280,7 @@
             const payload = {
                 name: document.getElementById('name').value,
                 phone_no: document.getElementById('phone').value,
-                system_kw: parseFloat(document.getElementById('kw').value) || null,
+                bill_amount: parseInt(document.getElementById('monthly_bill').value, 10) || null,
                 address: document.getElementById('address_1').value,
                 city: document.getElementById('town').value,
                 source: 'campaign',
