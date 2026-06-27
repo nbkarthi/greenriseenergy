@@ -202,17 +202,18 @@
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
+        @media (max-width: 480px) {
+            .container { padding: 28px 24px; }
+            .header p { font-size: 0.85rem; white-space: nowrap; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="formContainer">
             <div class="header">
-                <div class="brand-logo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
-                </div>
                 <h1>Go Solar Today</h1>
-                <p>Register for our exclusive campaign and unlock premium savings on your energy bills.</p>
+                <p>Register for our exclusive campaign.</p>
             </div>
             <form id="campaignForm" method="POST">
                 <div class="form-group">
