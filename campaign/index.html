@@ -226,10 +226,6 @@
                     <input type="tel" id="phone" name="phone" placeholder="98765 43210" required pattern="[6-9][0-9]{9}" maxlength="10" inputmode="numeric" title="Enter a 10-digit mobile number">
                 </div>
                 <div class="form-group">
-                    <label for="address_1">Address Line 1</label>
-                    <input type="text" id="address_1" name="address_1" placeholder="123 Solar Street, Green Avenue" required>
-                </div>
-                <div class="form-group">
                     <label for="town">Town / City</label>
                     <input type="text" id="town" name="town" placeholder="Chennai" required>
                 </div>
@@ -283,7 +279,6 @@
                 name: document.getElementById('name').value,
                 phone_no: document.getElementById('phone').value,
                 bill_amount: parseInt(document.getElementById('monthly_bill').value, 10) || null,
-                address: document.getElementById('address_1').value,
                 city: document.getElementById('town').value,
                 source: 'campaign',
                 utm_source: utm.get('utm_source') || null,
