@@ -206,6 +206,7 @@
             .container { padding: 28px 24px; }
             .header h1 { font-size: 1.6rem; }
             .header p { font-size: 0.85rem; white-space: nowrap; }
+            #campaignForm { scroll-margin-top: 16px; }
         }
     </style>
 </head>
@@ -251,6 +252,13 @@
     </div>
 
     <script>
+        window.addEventListener('load', () => {
+            if (window.matchMedia('(max-width: 480px)').matches) {
+                document.getElementById('campaignForm').scrollIntoView({ block: 'start' });
+                document.getElementById('name').focus({ preventScroll: true });
+            }
+        });
+
         const API_URL = 'https://app.greenriseenergy.com/api/leads';
 
         function getVisitorId() {
