@@ -13,7 +13,6 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const navMobile = document.querySelector('.nav-mobile');
   const navLinks = document.querySelectorAll('.nav-link');
-  const statNumbers = document.querySelectorAll('.stat-number');
   const animateElements = document.querySelectorAll('.animate-on-scroll');
 
   // ==========================================
@@ -87,44 +86,6 @@
   }
 
   // ==========================================
-  // Counter Animation
-  // ==========================================
-  function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number[data-target]');
-
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      const suffix = counter.getAttribute('data-suffix') || '';
-      const duration = 2000; // 2 seconds
-      const increment = target / (duration / 16); // 60fps
-
-      let current = 0;
-
-      const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-          counter.textContent = Math.floor(current) + suffix;
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = target + suffix;
-        }
-      };
-
-      // Start animation when element is visible
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            updateCounter();
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      observer.observe(counter);
-    });
-  }
-
-  // ==========================================
   // Scroll-triggered Animations
   // ==========================================
   function initScrollAnimations() {
@@ -146,41 +107,123 @@
   // ==========================================
   // Form Handling
   // ==========================================
+  // Leads POST to the same CRM endpoint campaign/index.html uses. That page's
+  // payload only proves name/phone_no/bill_amount/city/source/utm_*/visitor_id/
+  // cf-turnstile-response — email and message aren't part of any schema we've
+  // seen confirmed, so they're included on the stated understanding that the
+  // first real submission's response tells us whether those field names are
+  // right. If the API starts rejecting them, that's the signal to fix the names,
+  // not a guess made twice.
+  //
+  // TODO: confirm with a real /api/leads submission that `email` and `message`
+  // are the correct field names (or find out they're dropped/rejected and fix
+  // them). Do a real submission, check the Network tab response, update this
+  // payload if the API disagrees. Tracked here until confirmed.
+  const LEADS_API_URL = 'https://app.greenriseenergy.com/api/leads';
+
+  function getVisitorId() {
+    let id;
+    try {
+      id = localStorage.getItem('gr_visitor_id');
+      if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem('gr_visitor_id', id);
+      }
+    } catch (e) {
+      id = crypto.randomUUID();
+    }
+    return id;
+  }
+
   function initContactForm() {
-    const form = document.querySelector('.contact-form');
+    const form = document.getElementById('contact-form');
+    const successPanel = document.getElementById('contact-form-success');
     if (!form) return;
 
-    form.addEventListener('submit', function(e) {
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const submitLabel = submitBtn ? submitBtn.querySelector('span') : null;
+
+    function resetSubmitBtn() {
+      if (submitBtn) submitBtn.disabled = false;
+      if (submitLabel) submitLabel.textContent = 'Submit';
+    }
+
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // Get form data
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      // Basic validation
-      if (!data.name || !data.email || !data.message) {
+      if (!data.name || !data.phone || !data.city) {
         showNotification('Please fill in all required fields.', 'error');
         return;
       }
 
-      if (!isValidEmail(data.email)) {
+      if (data.email && !isValidEmail(data.email)) {
         showNotification('Please enter a valid email address.', 'error');
         return;
       }
 
-      // Simulate form submission (replace with actual endpoint)
-      const submitBtn = form.querySelector('.btn');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitLabel) submitLabel.textContent = 'Sending...';
 
-      // Simulate API call
-      setTimeout(() => {
-        showNotification('Thank you! We\'ll get back to you within 24 hours.', 'success');
-        form.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
+      const turnstileToken = form.querySelector('[name="cf-turnstile-response"]')?.value || '';
+      const utm = new URLSearchParams(window.location.search);
+
+      const payload = {
+        name: data.name,
+        phone_no: data.phone,
+        bill_amount: parseInt(data['monthly-bill'], 10) || null,
+        city: data.city,
+        email: data.email || null,
+        message: data.message || null,
+        project_type: data['project-type'] || null,
+        source: 'website_contact',
+        utm_source: utm.get('utm_source') || null,
+        utm_medium: utm.get('utm_medium') || null,
+        utm_campaign: utm.get('utm_campaign') || null,
+        visitor_id: getVisitorId(),
+        'cf-turnstile-response': turnstileToken,
+      };
+
+      try {
+        const response = await fetch(LEADS_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          form.hidden = true;
+          if (successPanel) successPanel.hidden = false;
+        } else if (response.status === 403) {
+          showNotification('Human verification failed. Please complete the checkbox and try again.', 'error');
+          if (window.turnstile) window.turnstile.reset();
+          resetSubmitBtn();
+        } else {
+          let errorMessage = 'Oops! There was a problem submitting your form.';
+          try {
+            const errorData = await response.json();
+            if (errorData && errorData.detail) {
+              if (typeof errorData.detail === 'string') {
+                errorMessage = errorData.detail;
+              } else if (Array.isArray(errorData.detail)) {
+                errorMessage = errorData.detail.map(err => {
+                  const field = err.loc && err.loc.length > 0 ? err.loc[err.loc.length - 1] : 'Error';
+                  return `${field}: ${err.msg}`;
+                }).join('\n');
+              }
+            }
+          } catch (e) {
+            // Ignore JSON parse errors and use the default message
+          }
+          showNotification(errorMessage, 'error');
+          resetSubmitBtn();
+        }
+      } catch (error) {
+        showNotification('Oops! There was a network error. Please try again.', 'error');
+        resetSubmitBtn();
+      }
     });
   }
 
@@ -208,7 +251,7 @@
       top: 100px;
       right: 20px;
       padding: 16px 24px;
-      background-color: ${type === 'success' ? '#2E7D32' : '#D32F2F'};
+      background-color: ${type === 'success' ? '#1B4332' : '#B3261E'};
       color: white;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -356,7 +399,6 @@
 
     // Initialize features
     initSmoothScroll();
-    animateCounters();
     initScrollAnimations();
     initContactForm();
     initLazyLoading();

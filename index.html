@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,86 +16,60 @@
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Facebook -->
+  <!-- ponytail: og:image/twitter:image below are a text-on-brand-color placeholder — swap for a real 1200x630 photo/design asset once one exists. -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://greenriseenergy.com/">
   <meta property="og:title" content="Greenrise Energy Solutions | Solar EPC Company">
   <meta property="og:description" content="Expert Solar EPC Solutions for Homes, Businesses & Industries – Maximize Savings, Minimize Carbon Footprint">
-  <meta property="og:image" content="https://placehold.co/1200x630/2E7D32/white?text=Greenrise+Energy+Solutions">
+  <meta property="og:image" content="https://placehold.co/1200x630/1B4332/FAF9F6?text=Greenrise+Energy+Solutions">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://greenriseenergy.com/">
   <meta name="twitter:title" content="Greenrise Energy Solutions | Solar EPC Company">
   <meta name="twitter:description" content="Expert Solar EPC Solutions for Homes, Businesses & Industries – Maximize Savings, Minimize Carbon Footprint">
-  <meta name="twitter:image" content="https://placehold.co/1200x630/2E7D32/white?text=Greenrise+Energy+Solutions">
+  <meta name="twitter:image" content="https://placehold.co/1200x630/1B4332/FAF9F6?text=Greenrise+Energy+Solutions">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://greenriseenergy.com/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232E7D32'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23F9A825'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231B4332'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23C98A2B'/%3E%3C/svg%3E">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Cloudflare Turnstile (contact form human verification) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://greenriseenergy.com/#business",
+    "name": "Greenrise Energy Solutions",
+    "url": "https://greenriseenergy.com/",
+    "telephone": "+917598483355",
+    "email": "office@greenriseenergy.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Saravana Nagar, Thindal",
+      "addressLocality": "Erode",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "638012",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
 </head>
 <body>
-  <!-- ==========================================
-       Header / Navigation
-       ========================================== -->
-  <header class="header" role="banner">
-    <div class="container header-inner">
-      <!-- Logo -->
-      <a href="#" class="logo" aria-label="Greenrise Energy Solutions - Home">
-        <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="24" cy="24" r="22" fill="#2E7D32"/>
-          <path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/>
-          <circle cx="24" cy="24" r="6" fill="#26A69A"/>
-        </svg>
-        <div class="logo-text">
-          <span>Greenrise</span>
-          <span>Energy Solutions</span>
-        </div>
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="nav" role="navigation" aria-label="Main navigation">
-        <ul class="nav-menu">
-          <li><a href="#" class="nav-link">Home</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="/blog/" class="nav-link">Blog</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <a href="#contact" class="btn btn-primary btn-sm nav-cta">Get Free Quote</a>
-      </nav>
-
-      <!-- Mobile Menu Toggle -->
-      <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-      <ul class="nav-mobile-menu">
-        <li><a href="#" class="nav-link">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="/blog/" class="nav-link">Blog</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <a href="#contact" class="btn btn-primary">Get Free Quote</a>
-    </nav>
-  </header>
+  {% include header.html %}
 
   <main role="main">
     <!-- ==========================================
@@ -145,7 +121,7 @@
                 <line x1="12" y1="18" x2="12" y2="18"/>
                 <line x1="8" y1="18" x2="8" y2="18"/>
               </svg>
-              Calculate Your Savings (₹)
+              Request a Site Visit
             </a>
           </div>
 
@@ -198,8 +174,8 @@
       <div class="container">
         <header class="section-header">
           <span class="section-subtitle">What We Offer</span>
-          <h2 class="section-title" id="services-title">Comprehensive Solar Solutions</h2>
-          <p class="section-description">From residential rooftops to utility-scale solar parks, we deliver end-to-end EPC services tailored to your energy needs.</p>
+          <h2 class="section-title" id="services-title">Solar EPC, Storage & PPA Services</h2>
+          <p class="section-description">From a single rooftop to investor-funded utility-scale projects, these are the lines we work across.</p>
         </header>
 
         <div class="services-grid">
@@ -213,9 +189,9 @@
             </div>
             <h3 class="service-title">Residential Rooftop Solar</h3>
             <ul class="service-list">
-              <li>Slash your electricity bills by up to 90%</li>
-              <li>25-year performance warranty included</li>
-              <li>Seamless grid-tied or hybrid systems</li>
+              <li>3 kW and up, sized to your household load</li>
+              <li>Grid-tied or hybrid, with net-metering paperwork handled</li>
+              <li>25-year panel performance warranty</li>
             </ul>
             <a href="#contact" class="service-link">
               Learn More
@@ -226,7 +202,7 @@
             </a>
           </article>
 
-          <!-- Service 2: Commercial & Industrial -->
+          <!-- Service 2: MSME & Industrial Rooftop -->
           <article class="service-card animate-on-scroll">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -241,11 +217,11 @@
                 <line x1="16" y1="14" x2="16" y2="14.01"/>
               </svg>
             </div>
-            <h3 class="service-title">Commercial & Industrial Rooftop</h3>
+            <h3 class="service-title">MSME & Industrial Rooftop</h3>
             <ul class="service-list">
-              <li>Reduce operational costs significantly</li>
-              <li>Meet ESG & sustainability goals</li>
-              <li>Tax incentives & accelerated depreciation</li>
+              <li>Rooftop systems sized for small and mid-size industry</li>
+              <li>Reduces exposure to commercial tariff hikes</li>
+              <li>Installation scheduled around your production line</li>
             </ul>
             <a href="#contact" class="service-link">
               Learn More
@@ -256,22 +232,19 @@
             </a>
           </article>
 
-          <!-- Service 3: Ground-Mounted -->
+          <!-- Service 3: BESS -->
           <article class="service-card animate-on-scroll">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <line x1="3" y1="9" x2="21" y2="9"/>
-                <line x1="3" y1="15" x2="21" y2="15"/>
-                <line x1="9" y1="3" x2="9" y2="21"/>
-                <line x1="15" y1="3" x2="15" y2="21"/>
+                <path d="M22 14V10"/>
+                <rect x="2" y="6" width="16" height="12" rx="2"/>
               </svg>
             </div>
-            <h3 class="service-title">Ground-Mounted Solar Projects</h3>
+            <h3 class="service-title">Battery Storage (BESS)</h3>
             <ul class="service-list">
-              <li>Ideal for large open land areas</li>
-              <li>Optimal tilt & orientation for max yield</li>
-              <li>Scalable from kW to MW capacity</li>
+              <li>Store solar for use after sunset or during outages</li>
+              <li>Pairs with a new system or retrofits an existing one</li>
+              <li>Sized to your backup and peak-demand needs</li>
             </ul>
             <a href="#contact" class="service-link">
               Learn More
@@ -282,7 +255,29 @@
             </a>
           </article>
 
-          <!-- Service 4: Solar Parks -->
+          <!-- Service 4: CSR-Funded Installs -->
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+              </svg>
+            </div>
+            <h3 class="service-title">CSR-Funded Installs</h3>
+            <ul class="service-list">
+              <li>Solar systems for orphanages and community institutions</li>
+              <li>Funded through corporate CSR budgets</li>
+              <li>We handle the CSR paperwork alongside the install</li>
+            </ul>
+            <a href="#contact" class="service-link">
+              Learn More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </article>
+
+          <!-- Service 5: Utility-Scale & PPA -->
           <article class="service-card animate-on-scroll">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -290,11 +285,11 @@
                 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
               </svg>
             </div>
-            <h3 class="service-title">Solar Parks & Utility-Scale</h3>
+            <h3 class="service-title">Utility-Scale & PPA Projects</h3>
             <ul class="service-list">
-              <li>Multi-MW utility-scale installations</li>
-              <li>PPA & investment models available</li>
-              <li>Grid integration & substations</li>
+              <li>Investor-funded, large-scale installations</li>
+              <li>Power sold to industrial buyers under a PPA</li>
+              <li>Grid interconnection and substation work in-house</li>
             </ul>
             <a href="#contact" class="service-link">
               Learn More
@@ -305,18 +300,20 @@
             </a>
           </article>
 
-          <!-- Service 5: O&M -->
+          <!-- Service 6: PPA Facilitation -->
           <article class="service-card animate-on-scroll">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                <path d="M9 17H7A5 5 0 0 1 7 7h2"/>
+                <path d="M15 7h2a5 5 0 1 1 0 10h-2"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
               </svg>
             </div>
-            <h3 class="service-title">Operation & Maintenance</h3>
+            <h3 class="service-title">PPA Facilitation</h3>
             <ul class="service-list">
-              <li>24/7 remote monitoring systems</li>
-              <li>Preventive & corrective maintenance</li>
-              <li>Performance optimization services</li>
+              <li>Structuring and brokering PPAs between buyer and seller</li>
+              <li>We're not always the EPC &mdash; sometimes purely the deal-maker</li>
+              <li>Support through due diligence for both sides</li>
             </ul>
             <a href="#contact" class="service-link">
               Learn More
@@ -327,20 +324,20 @@
             </a>
           </article>
 
-          <!-- Service 6: Consulting -->
+          <!-- Service 7: Retail Distribution -->
           <article class="service-card animate-on-scroll">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                <path d="m3.3 7 8.7 5 8.7-5"/>
+                <path d="M12 22V12"/>
               </svg>
             </div>
-            <h3 class="service-title">Solar Consulting & Feasibility</h3>
+            <h3 class="service-title">Retail Distribution</h3>
             <ul class="service-list">
-              <li>Site assessment & solar potential analysis</li>
-              <li>Financial modeling & ROI projections</li>
-              <li>Regulatory compliance & permitting</li>
+              <li>Distribution and resale of other manufacturers' equipment</li>
+              <li>Panels, inverters & BOS for installers and businesses</li>
+              <li>Reliable supply chain and logistics support</li>
             </ul>
             <a href="#contact" class="service-link">
               Learn More
@@ -359,38 +356,7 @@
          ========================================== -->
     <section class="section stats" aria-labelledby="stats-title">
       <div class="container">
-        <h2 class="visually-hidden" id="stats-title">Our Achievements</h2>
-
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number" data-target="150" data-suffix="+">0</div>
-            <div class="stat-label">Projects Completed</div>
-            <div class="stat-divider" aria-hidden="true"></div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-number" data-target="100" data-suffix="+">0</div>
-            <div class="stat-label">Projects Completed</div>
-            <div class="stat-divider" aria-hidden="true"></div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-number" data-target="200" data-suffix="+">0</div>
-            <div class="stat-label">Happy Clients</div>
-            <div class="stat-divider" aria-hidden="true"></div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-number" data-target="100" data-suffix="%">0</div>
-            <div class="stat-label">Customer Satisfaction</div>
-            <div class="stat-divider" aria-hidden="true"></div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-number" data-target="5" data-suffix="M+">0</div>
-            <div class="stat-label">Savings Delivered (₹)</div>
-          </div>
-        </div>
+        <h2 class="visually-hidden" id="stats-title">Why Partner With Greenrise</h2>
 
         <div class="stats-value-props">
           <div class="value-prop">
@@ -445,171 +411,84 @@
     </section>
 
     <!-- ==========================================
-         Projects Section
+         Capabilities Section
          ========================================== -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
+    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
         <header class="section-header">
-          <span class="section-subtitle">Our Portfolio</span>
-          <h2 class="section-title" id="projects-title">Featured Solar Projects</h2>
-          <p class="section-description">Explore our successful installations across residential, commercial, and utility-scale segments.</p>
+          <span class="section-subtitle">How We Deliver</span>
+          <h2 class="section-title" id="capabilities-title">Engineering & Delivery Standards</h2>
+          <p class="section-description">We don't have published case studies yet &mdash; here's how every project, large or small, is actually run.</p>
         </header>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-image">
-              <img src="https://placehold.co/600x400/2E7D32/white?text=Solar+Project" alt="40 kWp residential rooftop solar installation in Singapore" loading="lazy">
-              <span class="project-badge">Residential</span>
+        <div class="services-grid">
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="3" rx="2"/>
+                <path d="m16 9-5.5 5.5L8 12"/>
+              </svg>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">40 kWp Residential Rooftop – Singapore</h3>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">40 kWp</span>
-                  <span class="metric-label">Capacity</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">₹7,00,000</span>
-                  <span class="metric-label">Annual Savings</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">4.2 yrs</span>
-                  <span class="metric-label">ROI</span>
-                </div>
-              </div>
-              <p class="project-description">Premium rooftop installation with hybrid inverter system and battery storage backup for a landed property.</p>
-            </div>
+            <h3 class="service-title">Tier-1, ALMM-Listed Equipment</h3>
+            <p class="project-description">We spec panels and inverters from the official ALMM list &mdash; the same approved-manufacturer register that governs subsidy-linked and government-tendered installs.</p>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-image">
-              <img src="https://placehold.co/600x400/26A69A/white?text=Commercial+Solar" alt="500 kWp commercial rooftop solar installation on manufacturing facility" loading="lazy">
-              <span class="project-badge">Commercial</span>
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 17H5"/>
+                <path d="M19 7h-9"/>
+                <circle cx="17" cy="17" r="3"/>
+                <circle cx="7" cy="7" r="3"/>
+              </svg>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">500 kWp Factory Rooftop – Malaysia</h3>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">500 kWp</span>
-                  <span class="metric-label">Capacity</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">₹78,00,000</span>
-                  <span class="metric-label">Annual Savings</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">3.5 yrs</span>
-                  <span class="metric-label">ROI</span>
-                </div>
-              </div>
-              <p class="project-description">Large-scale commercial installation for a manufacturing facility, achieving 70% energy offset.</p>
-            </div>
+            <h3 class="service-title">Site-Specific Engineering</h3>
+            <p class="project-description">Shading, structural load and orientation are modelled per site before a quote goes out &mdash; not a generic system resized to fit your roof.</p>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-image">
-              <img src="https://placehold.co/600x400/1B5E20/white?text=Utility+Scale" alt="2 MW ground-mounted solar farm" loading="lazy">
-              <span class="project-badge">Utility-Scale</span>
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                <path d="m3.3 7 8.7 5 8.7-5"/>
+                <path d="M12 22V12"/>
+              </svg>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">2 MW Ground-Mounted Farm – Thailand</h3>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">2 MW</span>
-                  <span class="metric-label">Capacity</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">₹3.1 Cr</span>
-                  <span class="metric-label">Annual Revenue</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">5 yrs</span>
-                  <span class="metric-label">ROI</span>
-                </div>
-              </div>
-              <p class="project-description">Utility-scale solar farm with grid interconnection, powering over 500 households annually.</p>
-            </div>
+            <h3 class="service-title">Single Point of Accountability</h3>
+            <p class="project-description">Permits, DISCOM liaison, procurement and commissioning all run through us &mdash; one team to call if anything needs chasing.</p>
           </article>
 
-          <!-- Project 4 -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-image">
-              <img src="https://placehold.co/600x400/F9A825/black?text=Shopping+Mall" alt="150 kWp shopping mall rooftop solar installation" loading="lazy">
-              <span class="project-badge">Commercial</span>
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 14V10"/>
+                <rect x="2" y="6" width="16" height="12" rx="2"/>
+              </svg>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">150 kWp Shopping Mall – Indonesia</h3>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">150 kWp</span>
-                  <span class="metric-label">Capacity</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">₹23,00,000</span>
-                  <span class="metric-label">Annual Savings</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">4 yrs</span>
-                  <span class="metric-label">ROI</span>
-                </div>
-              </div>
-              <p class="project-description">Retail complex solar installation with smart monitoring system and LED lighting retrofit.</p>
-            </div>
+            <h3 class="service-title">Flexible Financing</h3>
+            <p class="project-description">CapEx ownership, OpEx/PPA structures, or investor-funded builds &mdash; we scope the commercial model alongside the technical one.</p>
           </article>
 
-          <!-- Project 5 -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-image">
-              <img src="https://placehold.co/600x400/4CAF50/white?text=Residential" alt="25 kWp residential solar with battery storage" loading="lazy">
-              <span class="project-badge">Residential</span>
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/>
+              </svg>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">25 kWp Smart Home Solar – Australia</h3>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">25 kWp</span>
-                  <span class="metric-label">Capacity</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">₹5,10,000</span>
-                  <span class="metric-label">Annual Savings</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">3.8 yrs</span>
-                  <span class="metric-label">ROI</span>
-                </div>
-              </div>
-              <p class="project-description">Tesla Powerwall integrated system with smart home automation for optimal self-consumption.</p>
-            </div>
+            <h3 class="service-title">O&amp;M After Commissioning</h3>
+            <p class="project-description">Remote performance monitoring and scheduled maintenance, so an installed system stays accountable to its own output projections.</p>
           </article>
 
-          <!-- Project 6 -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-image">
-              <img src="https://placehold.co/600x400/2E7D32/white?text=Solar+Project" alt="5 MW solar park installation" loading="lazy">
-              <span class="project-badge">Utility-Scale</span>
+          <article class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+                <path d="m9 15 2 2 4-4"/>
+              </svg>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">5 MW Solar Park – Vietnam</h3>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">5 MW</span>
-                  <span class="metric-label">Capacity</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">₹7.8 Cr</span>
-                  <span class="metric-label">Annual Revenue</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">4.5 yrs</span>
-                  <span class="metric-label">ROI</span>
-                </div>
-              </div>
-              <p class="project-description">Utility-scale solar park developed under PPA model, supplying clean energy to the national grid.</p>
-            </div>
+            <h3 class="service-title">Compliance Handled</h3>
+            <p class="project-description">Net-metering applications, subsidy forms and CSR documentation are prepared and filed as part of the project &mdash; not left for you to figure out.</p>
           </article>
         </div>
       </div>
@@ -681,98 +560,38 @@
     <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
       <div class="container">
         <header class="section-header">
-          <span class="section-subtitle">Testimonials</span>
-          <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
-          <p class="section-description">Real experiences from homeowners and businesses who made the switch to solar.</p>
+          <span class="section-subtitle">Working With Us</span>
+          <h2 class="section-title" id="testimonials-title">What You Can Expect</h2>
+          <p class="section-description">We're not publishing client quotes we can't stand behind. Here's what we commit to on every project instead.</p>
         </header>
 
         <div class="testimonials-grid">
-          <!-- Testimonial 1 -->
           <article class="testimonial-card animate-on-scroll">
             <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
             </svg>
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            </div>
-            <p class="testimonial-text">"Greenrise transformed our electricity bills. We're saving over ₹57,000 monthly and the installation was completed in just two days. The team was professional and explained everything clearly."</p>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">RK</div>
-              <div class="author-info">
-                <h4>Rajesh Kumar</h4>
-                <span>Homeowner, Chennai</span>
-              </div>
-            </div>
+            <p class="testimonial-text">A site visit and load assessment before any quote is finalised &mdash; sizing follows your actual consumption, not a template.</p>
           </article>
 
-          <!-- Testimonial 2 -->
           <article class="testimonial-card animate-on-scroll">
             <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
             </svg>
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            </div>
-            <p class="testimonial-text">"As a factory owner, energy costs were eating into our margins. Greenrise's 500kW system reduced our operating costs by 65%. Their O&M service ensures everything runs smoothly."</p>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">SM</div>
-              <div class="author-info">
-                <h4>Senthil Murugan</h4>
-                <span>Factory Owner, Coimbatore</span>
-              </div>
-            </div>
+            <p class="testimonial-text">A written quote itemising panels, inverter, mounting and labour &mdash; no bundled figure you can't check.</p>
           </article>
 
-          <!-- Testimonial 3 -->
           <article class="testimonial-card animate-on-scroll">
             <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
             </svg>
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            </div>
-            <p class="testimonial-text">"The monitoring app is fantastic – I can see exactly how much power we're generating in real-time. After 3 years, our system has performed even better than the initial projections."</p>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">PL</div>
-              <div class="author-info">
-                <h4>Priya Lakshmi</h4>
-                <span>Homeowner, Madurai</span>
-              </div>
-            </div>
+            <p class="testimonial-text">One point of contact for the life of the project &mdash; from first call through commissioning and after-sales support.</p>
           </article>
 
-          <!-- Testimonial 4 -->
           <article class="testimonial-card animate-on-scroll">
             <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
             </svg>
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            </div>
-            <p class="testimonial-text">"Our shopping mall's 150kW system not only cuts costs but also attracts eco-conscious customers. Greenrise handled all the permits and made the process completely hassle-free."</p>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">KR</div>
-              <div class="author-info">
-                <h4>Karthik Ramesh</h4>
-                <span>Mall Manager, Trichy</span>
-              </div>
-            </div>
+            <p class="testimonial-text">Straight answers on what net metering, subsidies or a PPA structure actually mean for your specific case.</p>
           </article>
         </div>
       </div>
@@ -784,18 +603,10 @@
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container">
         <div class="about-grid">
-          <div class="about-image animate-on-scroll">
-            <img src="https://placehold.co/800x600/2E7D32/white?text=Our+Team" alt="Greenrise Energy Solutions team of solar installation professionals" loading="lazy">
-            <div class="about-image-badge">
-              <span>15+</span>
-              <small>Years of Excellence</small>
-            </div>
-          </div>
-
           <div class="about-content">
             <h2 id="about-title">About Greenrise Energy Solutions</h2>
-            <p>Greenrise Energy Solutions is a leading solar EPC provider committed to accelerating the transition to renewable energy. With deep expertise in design, installation, and maintenance, we deliver turnkey solar solutions that maximize ROI and sustainability.</p>
-            <p>From residential rooftops to utility-scale solar parks, we've helped hundreds of clients across Southeast Asia and beyond achieve energy independence while reducing their carbon footprint.</p>
+            <p>Greenrise Energy Solutions is a solar EPC provider based in Erode, Tamil Nadu, covering the full spectrum from residential rooftops to investor-funded, PPA-backed utility-scale projects &mdash; plus CSR-funded installs and brokering PPAs where we're not the EPC ourselves.</p>
+            <p>We run design, procurement, installation and after-sales in-house, so one team stays accountable from first site visit to commissioning.</p>
 
             <div class="about-features">
               <div class="about-feature">
@@ -901,165 +712,100 @@
                 </div>
               </div>
             </div>
-
-            <div class="social-links">
-              <a href="#" class="social-link" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <a href="#" class="social-link" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a href="#" class="social-link" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-              </a>
-              <a href="#" class="social-link" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
-            </div>
           </div>
 
           <!-- Contact Form -->
           <div class="contact-form-wrapper animate-on-scroll">
-            <form class="contact-form" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="_blank" novalidate>
+            <form class="contact-form" id="contact-form" novalidate>
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Full Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="name" name="entry.NAME_ENTRY_ID" placeholder="John Doe" required aria-required="true">
+                  <input type="text" id="name" name="name" placeholder="John Doe" required aria-required="true">
                 </div>
                 <div class="form-group">
-                  <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                  <input type="email" id="email" name="entry.EMAIL_ENTRY_ID" placeholder="john@example.com" required aria-required="true">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="john@example.com">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="entry.PHONE_ENTRY_ID" value="+91" placeholder="+91">
+                  <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+                  <input type="tel" id="phone" name="phone" value="+91" placeholder="+91" required aria-required="true">
                 </div>
                 <div class="form-group">
+                  <label for="city">City / Town <span aria-hidden="true">*</span></label>
+                  <input type="text" id="city" name="city" placeholder="Erode" required aria-required="true">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
                   <label for="project-type">Project Type</label>
-                  <select id="project-type" name="entry.PROJECT_ENTRY_ID">
+                  <select id="project-type" name="project-type">
                     <option value="">Select a project type</option>
                     <option value="Residential Rooftop">Residential Rooftop</option>
-                    <option value="Commercial/Industrial Rooftop">Commercial/Industrial Rooftop</option>
-                    <option value="Ground-Mounted">Ground-Mounted</option>
-                    <option value="Utility-Scale/Solar Park">Utility-Scale/Solar Park</option>
-                    <option value="Operation & Maintenance">Operation & Maintenance</option>
-                    <option value="Consulting/Feasibility">Consulting/Feasibility</option>
+                    <option value="MSME & Industrial Rooftop">MSME & Industrial Rooftop</option>
+                    <option value="Battery Storage (BESS)">Battery Storage (BESS)</option>
+                    <option value="CSR-Funded Install">CSR-Funded Install</option>
+                    <option value="Utility-Scale & PPA">Utility-Scale & PPA</option>
+                    <option value="PPA Facilitation">PPA Facilitation</option>
+                    <option value="Retail Distribution">Retail Distribution</option>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label for="monthly-bill">Average Monthly EB Bill (₹)</label>
+                  <input type="number" id="monthly-bill" name="monthly-bill" placeholder="e.g. 3000" min="0" step="1" inputmode="numeric">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="message">Message <span aria-hidden="true">*</span></label>
-                <textarea id="message" name="entry.MESSAGE_ENTRY_ID" placeholder="Tell us about your project, property size, current electricity bills, or any questions..." required aria-required="true"></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us about your project, property size, current electricity bills, or any questions..."></textarea>
               </div>
 
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAADrXsJDarvzyJpvB" data-appearance="interaction-only"></div>
+
               <div class="form-submit">
-                <button type="submit" class="btn btn-primary btn-lg">
+                <button type="submit" class="btn btn-primary btn-lg" id="contact-submit-btn">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="22" y1="2" x2="11" y2="13"/>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                   </svg>
-                  Submit
+                  <span>Submit</span>
                 </button>
               </div>
             </form>
+
+            <div class="form-success" id="contact-form-success" hidden>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <h3>Thank You!</h3>
+              <p>Our experts will contact you soon.</p>
+            </div>
           </div>
         </div>
 
         <!-- Map -->
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d103.65442704769795!3d1.352083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9b75%3A0x3a3af6a6564b4a5!2sSingapore!5e0!3m2!1sen!2ssg!4v1699999999999!5m2!1sen!2ssg"
+            src="https://www.google.com/maps?q=Saravana+Nagar%2C+Thindal%2C+Erode%2C+Tamil+Nadu+638012&output=embed"
             width="100%"
             height="300"
             style="border:0;"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Greenrise Energy Solutions office location in Singapore">
+            title="Greenrise Energy Solutions office location in Erode, Tamil Nadu">
           </iframe>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ==========================================
-       Footer
-       ========================================== -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand Column -->
-        <div class="footer-brand">
-          <a href="#" class="footer-logo">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="24" cy="24" r="22" fill="#2E7D32"/>
-              <path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/>
-              <circle cx="24" cy="24" r="6" fill="#26A69A"/>
-            </svg>
-            <span>Greenrise Energy</span>
-          </a>
-          <p>Empowering homes and businesses with clean, reliable solar energy solutions across Southeast Asia.</p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-column">
-          <h4>Quick Links</h4>
-          <nav class="footer-links" aria-label="Footer quick links">
-            <a href="#">Home</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-
-        <!-- Services -->
-        <div class="footer-column">
-          <h4>Services</h4>
-          <nav class="footer-links" aria-label="Footer services">
-            <a href="#services">Residential Solar</a>
-            <a href="#services">Commercial Solar</a>
-            <a href="#services">Ground-Mounted</a>
-            <a href="#services">Solar Parks</a>
-            <a href="#services">O&M Services</a>
-          </nav>
-        </div>
-
-        <!-- Resources -->
-        <div class="footer-column">
-          <h4>Resources</h4>
-          <nav class="footer-links" aria-label="Footer resources">
-            <a href="/blog/">Blog</a>
-            <a href="#">FAQs</a>
-            <a href="#">Solar Calculator</a>
-            <a href="#">Case Studies</a>
-            <a href="#">Downloads</a>
-          </nav>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 Greenrise Energy Solutions. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  {% include footer.html %}
 
   <!-- JavaScript -->
   <script src="js/script.js"></script>
