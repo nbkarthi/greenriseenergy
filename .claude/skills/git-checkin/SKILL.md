@@ -8,8 +8,11 @@ description: Commit and push changes when the user says "push", "checkin", or "c
 When the user says **"push"**, **"checkin"**, or **"commit"**, immediately commit
 and push the changes.
 
-- **Only work on the `dev` branch.** Verify the branch first. Never push to any
-  other branch.
+- **Only work on the `dev` branch.** Verify the branch first.
+  - If `dev` exists, switch to it.
+  - If `dev` doesn't exist (locally or on the remote), create it from `main`,
+    then switch to it.
+  - Never push to any other branch.
 - Review the diff and stage the relevant changes.
 - Use a **short, natural, professional commit message** describing the actual
   change.
