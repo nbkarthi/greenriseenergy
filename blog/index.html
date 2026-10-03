@@ -13,9 +13,9 @@ permalink: /blog/
   <meta name="description" content="Latest insights on solar energy, government incentives, and industry updates from Greenrise Energy Solutions.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greenriseenergy.com/blog/">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232E7D32'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23F9A825'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231B4332'/%3E%3Cpath d='M50 20 L55 40 L75 40 L60 52 L65 72 L50 60 L35 72 L40 52 L25 40 L45 40 Z' fill='%23C98A2B'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
   <style>
     .blog-section { padding: var(--spacing-5xl) 0; }
@@ -40,41 +40,7 @@ permalink: /blog/
   </style>
 </head>
 <body>
-  <header class="header" role="banner">
-    <div class="container header-inner">
-      <a href="{{ '/' | relative_url }}" class="logo" aria-label="Greenrise Energy Solutions - Home">
-        <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="24" cy="24" r="22" fill="#2E7D32"/>
-          <path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/>
-          <circle cx="24" cy="24" r="6" fill="#26A69A"/>
-        </svg>
-        <div class="logo-text"><span>Greenrise</span><span>Energy Solutions</span></div>
-      </a>
-      <nav class="nav" role="navigation" aria-label="Main navigation">
-        <ul class="nav-menu">
-          <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
-          <li><a href="{{ '/#services' | relative_url }}" class="nav-link">Services</a></li>
-          <li><a href="{{ '/#projects' | relative_url }}" class="nav-link">Projects</a></li>
-          <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
-          <li><a href="{{ '/blog/' | relative_url }}" class="nav-link active">Blog</a></li>
-          <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
-        </ul>
-        <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary btn-sm nav-cta">Get Free Quote</a>
-      </nav>
-      <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-    <nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-      <ul class="nav-mobile-menu">
-        <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
-        <li><a href="{{ '/#services' | relative_url }}" class="nav-link">Services</a></li>
-        <li><a href="{{ '/#projects' | relative_url }}" class="nav-link">Projects</a></li>
-        <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
-        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link active">Blog</a></li>
-        <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
-      </ul>
-      <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary">Get Free Quote</a>
-    </nav>
-  </header>
+  {% include header.html %}
 
   <main role="main" style="padding-top: var(--header-height);">
     <section class="blog-section" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
@@ -106,39 +72,7 @@ permalink: /blog/
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="{{ '/' | relative_url }}" class="footer-logo">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="#2E7D32"/><path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#F9A825"/><circle cx="24" cy="24" r="6" fill="#26A69A"/></svg>
-            <span>Greenrise Energy</span>
-          </a>
-          <p>Empowering homes and businesses with clean, reliable solar energy solutions across Southeast Asia.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Quick Links</h4>
-          <nav class="footer-links"><a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/#services' | relative_url }}">Services</a><a href="{{ '/#projects' | relative_url }}">Projects</a><a href="{{ '/#about' | relative_url }}">About Us</a><a href="{{ '/#contact' | relative_url }}">Contact</a></nav>
-        </div>
-        <div class="footer-column">
-          <h4>Services</h4>
-          <nav class="footer-links"><a href="{{ '/#services' | relative_url }}">Residential Solar</a><a href="{{ '/#services' | relative_url }}">Commercial Solar</a><a href="{{ '/#services' | relative_url }}">Ground-Mounted</a><a href="{{ '/#services' | relative_url }}">Solar Parks</a><a href="{{ '/#services' | relative_url }}">O&M Services</a></nav>
-        </div>
-        <div class="footer-column">
-          <h4>Resources</h4>
-          <nav class="footer-links"><a href="{{ '/blog/' | relative_url }}">Blog</a><a href="#">FAQs</a><a href="#">Solar Calculator</a><a href="#">Case Studies</a><a href="#">Downloads</a></nav>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Greenrise Energy Solutions. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  {% include footer.html %}
   <script src="{{ '/js/script.js' | relative_url }}"></script>
   <script>
   (function() {

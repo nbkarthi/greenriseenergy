@@ -1,0 +1,53 @@
+  <!-- ==========================================
+       Footer
+       ========================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="{{ '/' | relative_url }}" class="footer-logo">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="#1B4332"/>
+              <path d="M24 10L27 20H37L29 26L32 36L24 30L16 36L19 26L11 20H21L24 10Z" fill="#C98A2B"/>
+              <circle cx="24" cy="24" r="6" fill="#8A7B4A"/>
+            </svg>
+            <span>Greenrise Energy</span>
+          </a>
+          <p>Solar EPC services for homes, industries and institutions &mdash; from rooftop installs to utility-scale, PPA-backed projects. Based in Erode, Tamil Nadu.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <nav class="footer-links" aria-label="Footer quick links">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="{{ '/#services' | relative_url }}">Services</a>
+            <a href="{{ '/#capabilities' | relative_url }}">Capabilities</a>
+            <a href="{{ '/#about' | relative_url }}">About Us</a>
+            <a href="{{ '/#contact' | relative_url }}">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Services -->
+        <!-- ponytail: Resources/Blog column removed while blog is off the nav (see header.html);
+             re-add a third .footer-column with the Blog link and restore footer-grid's 4th
+             column (css/style.css) when the blog comes back. -->
+        <div class="footer-column">
+          <h4>Services</h4>
+          <nav class="footer-links" aria-label="Footer services">
+            <a href="{{ '/#services' | relative_url }}">Residential Rooftop</a>
+            <a href="{{ '/#services' | relative_url }}">MSME & Industrial</a>
+            <a href="{{ '/#services' | relative_url }}">Battery Storage (BESS)</a>
+            <a href="{{ '/#services' | relative_url }}">Utility-Scale & PPA</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        {% assign founded_year = 2024 %}
+        {% assign current_year = site.time | date: "%Y" | plus: 0 %}
+        <p>&copy; {% if current_year > founded_year %}{{ founded_year }}&ndash;{{ current_year }}{% else %}{{ founded_year }}{% endif %} Greenrise Energy Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
