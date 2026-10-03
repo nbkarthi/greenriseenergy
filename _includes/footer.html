@@ -30,9 +30,6 @@
         </div>
 
         <!-- Services -->
-        <!-- ponytail: Resources/Blog column removed while blog is off the nav (see header.html);
-             re-add a third .footer-column with the Blog link and restore footer-grid's 4th
-             column (css/style.css) when the blog comes back. -->
         <div class="footer-column">
           <h4>Services</h4>
           <nav class="footer-links" aria-label="Footer services">
@@ -40,6 +37,14 @@
             <a href="{{ '/#services' | relative_url }}">MSME & Industrial</a>
             <a href="{{ '/#services' | relative_url }}">Battery Storage (BESS)</a>
             <a href="{{ '/#services' | relative_url }}">Utility-Scale & PPA</a>
+          </nav>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <nav class="footer-links" aria-label="Footer resources">
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
           </nav>
         </div>
       </div>

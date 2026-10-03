@@ -23,9 +23,7 @@
           <li><a href="{{ '/#services' | relative_url }}" class="nav-link">Services</a></li>
           <li><a href="{{ '/#capabilities' | relative_url }}" class="nav-link">Capabilities</a></li>
           <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
-          <!-- ponytail: Blog nav link hidden for now — /blog/ pages still build and work via
-               direct link, just not surfaced in nav. Re-add `<li><a href="{{ '/blog/' | relative_url }}"
-               class="nav-link">Blog</a></li>` here (and in nav-mobile-menu below) to bring it back. -->
+          <li><a href="{{ '/blog/' | relative_url }}" class="nav-link{% if include.active == 'blog' %} active{% endif %}">Blog</a></li>
           <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
         </ul>
         <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary btn-sm nav-cta">Get Free Quote</a>
@@ -46,6 +44,7 @@
         <li><a href="{{ '/#services' | relative_url }}" class="nav-link">Services</a></li>
         <li><a href="{{ '/#capabilities' | relative_url }}" class="nav-link">Capabilities</a></li>
         <li><a href="{{ '/#about' | relative_url }}" class="nav-link">About</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link{% if include.active == 'blog' %} active{% endif %}">Blog</a></li>
         <li><a href="{{ '/#contact' | relative_url }}" class="nav-link">Contact</a></li>
       </ul>
       <a href="{{ '/#contact' | relative_url }}" class="btn btn-primary">Get Free Quote</a>
