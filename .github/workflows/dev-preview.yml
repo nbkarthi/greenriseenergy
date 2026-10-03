@@ -22,7 +22,7 @@ jobs:
           bundler-cache: true
 
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --baseurl "/greenriseenergy-dev"
 
       - name: Deploy to preview repo
         uses: peaceiris/actions-gh-pages@v4
