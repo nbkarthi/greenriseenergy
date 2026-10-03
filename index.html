@@ -81,14 +81,6 @@
 
       <div class="container">
         <div class="hero-content">
-          <!-- Badge -->
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-            </svg>
-            <span>Certified Solar EPC Provider</span>
-          </div>
-
           <!-- Title -->
           <h1 class="hero-title" id="hero-title">
             Power Your Future with <span class="hero-title-highlight">Clean, Reliable</span> Solar Energy
@@ -181,6 +173,7 @@
         <div class="services-grid">
           <!-- Service 1: Residential Rooftop -->
           <article class="service-card animate-on-scroll">
+            <img class="card-photo" src="{{ '/photos/residential.jpeg' | relative_url }}" alt="Greenrise crew installing a rooftop solar system on a home" loading="lazy">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -204,6 +197,7 @@
 
           <!-- Service 2: MSME & Industrial Rooftop -->
           <article class="service-card animate-on-scroll">
+            <img class="card-photo" src="{{ '/photos/msme.jpeg' | relative_url }}" alt="Technician inspecting an industrial rooftop solar array" loading="lazy">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
@@ -257,6 +251,7 @@
 
           <!-- Service 4: CSR-Funded Installs -->
           <article class="service-card animate-on-scroll">
+            <img class="card-photo" src="{{ '/photos/csr.jpeg' | relative_url }}" alt="Rooftop solar array on an industrial shed" loading="lazy">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
@@ -279,6 +274,7 @@
 
           <!-- Service 5: Utility-Scale & PPA -->
           <article class="service-card animate-on-scroll">
+            <img class="card-photo" src="{{ '/photos/utility-scale.jpeg' | relative_url }}" alt="Aerial view of a utility-scale solar plant" loading="lazy">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"/>
@@ -302,6 +298,7 @@
 
           <!-- Service 6: PPA Facilitation -->
           <article class="service-card animate-on-scroll">
+            <img class="card-photo" src="{{ '/photos/ppa-facilitation.jpeg' | relative_url }}" alt="Two professionals shaking hands in front of a large solar plant" loading="lazy">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M9 17H7A5 5 0 0 1 7 7h2"/>
@@ -326,6 +323,7 @@
 
           <!-- Service 7: Retail Distribution -->
           <article class="service-card animate-on-scroll">
+            <img class="card-photo" src="{{ '/photos/retail.jpeg' | relative_url }}" alt="Staff checking a delivery of solar panels and inverters in a warehouse" loading="lazy">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
@@ -413,7 +411,7 @@
     <!-- ==========================================
          Capabilities Section
          ========================================== -->
-    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+    <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
         <header class="section-header">
           <span class="section-subtitle">How We Deliver</span>
@@ -490,6 +488,12 @@
             <h3 class="service-title">Compliance Handled</h3>
             <p class="project-description">Net-metering applications, subsidy forms and CSR documentation are prepared and filed as part of the project &mdash; not left for you to figure out.</p>
           </article>
+        </div>
+
+        <div class="photo-strip animate-on-scroll">
+          <img src="{{ '/photos/msme.jpeg' | relative_url }}" alt="Rooftop solar array with walkway on an industrial building" loading="lazy">
+          <img src="{{ '/photos/msme2.jpeg' | relative_url }}" alt="Technician on a completed rooftop solar installation" loading="lazy">
+          <img src="{{ '/photos/msme3.jpeg' | relative_url }}" alt="Solar panels installed on a metal-sheet industrial roof" loading="lazy">
         </div>
       </div>
     </section>
@@ -603,6 +607,7 @@
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container">
         <div class="about-grid">
+          <img class="about-photo" src="{{ '/photos/team.jpg' | relative_url }}" alt="The Greenrise Energy Solutions installation team on site" loading="lazy">
           <div class="about-content">
             <h2 id="about-title">About Greenrise Energy Solutions</h2>
             <p>Greenrise Energy Solutions is a solar EPC provider based in Erode, Tamil Nadu, covering the full spectrum from residential rooftops to investor-funded, PPA-backed utility-scale projects &mdash; plus CSR-funded installs and brokering PPAs where we're not the EPC ourselves.</p>
