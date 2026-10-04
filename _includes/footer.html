@@ -49,16 +49,15 @@
         </div>
       </div>
 
-      <p class="footer-legal">
-        <span>CIN: U35106TZ2024PTC032814</span>
-        <span>TAN: CMBG08108C</span>
-        <span>GSTIN: 33AALCG5716B1ZX</span>
-      </p>
-
       <div class="footer-bottom">
         {% assign founded_year = 2024 %}
         {% assign current_year = site.time | date: "%Y" | plus: 0 %}
         <p>&copy; {% if current_year > founded_year %}{{ founded_year }}&ndash;{{ current_year }}{% else %}{{ founded_year }}{% endif %} Greenrise Energy Solutions. All rights reserved.</p>
+        <p class="footer-legal">
+          <span>CIN: U35106TZ2024PTC032814</span>
+          <span>TAN: CMBG08108C</span>
+          <span>GSTIN: 33AALCG5716B1ZX</span>
+        </p>
       </div>
     </div>
   </footer>
