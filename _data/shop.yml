@@ -1,0 +1,46 @@
+# Trade shop catalogue for /shop. Images are placeholders in images/shop/ — swap files in place.
+# Model numbers/wattages are representative; confirm against actual stock.
+- id: kits
+  category: Rooftop Packages
+  blurb: Complete residential kits built around Deye single-phase inverters.
+  items:
+    - name: 3 kW Residential Package
+      model: Deye SUN-3K-G + 6 x Adani 545 Wp
+      specs: [Deye single-phase on-grid inverter, "6 x Adani 545 Wp bifacial panels", GI rooftop structure, ACDB box]
+      image: /images/shop/adani-panel.jpg
+    - name: 5 kW Residential Package
+      model: Deye SUN-5K-G + 10 x Adani 545 Wp
+      specs: [Deye single-phase on-grid inverter, "10 x Adani 545 Wp bifacial panels", GI rooftop structure, ACDB box]
+      image: /images/shop/adani-panel.jpg
+- id: inverters
+  category: Deye Inverters
+  blurb: On-grid string and hybrid inverters, 3 kW to 50 kW.
+  items:
+    - {name: Deye 3 kW Single-Phase On-Grid, model: SUN-3K-G, specs: [Single phase, Wi-Fi monitoring, Zero-export ready], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 5 kW Single-Phase On-Grid, model: SUN-5K-G, specs: [Single phase, 2 MPPT, Wi-Fi monitoring], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 5 kW Single-Phase Hybrid, model: SUN-5K-SG, specs: [Single phase, Battery-ready, Backup output], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 10 kW Three-Phase On-Grid, model: SUN-10K-G, specs: [Three phase, 2 MPPT, Wi-Fi monitoring], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 15 kW Three-Phase On-Grid, model: SUN-15K-G, specs: [Three phase, 2 MPPT, Wi-Fi monitoring], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 20 kW Three-Phase On-Grid, model: SUN-20K-G, specs: [Three phase, 2 MPPT, Wi-Fi monitoring], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 30 kW Three-Phase On-Grid, model: SUN-30K-G, specs: [Three phase, Commercial / MSME, Wi-Fi monitoring], image: /images/shop/deye-single-phase.jpg}
+    - {name: Deye 50 kW Three-Phase On-Grid, model: SUN-50K-G, specs: [Three phase, Commercial / MSME, Wi-Fi monitoring], image: /images/shop/deye-single-phase.jpg}
+- id: panels
+  category: Adani Solar Panels
+  blurb: Mono PERC and TOPCon modules from Adani Solar.
+  items:
+    - {name: Adani 540 Wp Mono PERC Bifacial, model: 540 Wp, specs: [Half-cut cells, Bifacial, 182 mm cells], image: /images/shop/adani-panel.jpg}
+    - {name: Adani 550 Wp Mono PERC Bifacial, model: 550 Wp, specs: [Half-cut cells, Bifacial, 182 mm cells], image: /images/shop/adani-panel.jpg}
+    - {name: Adani 575 Wp TOPCon Bifacial, model: 575 Wp, specs: [N-type TOPCon, Dual glass, Bifacial], image: /images/shop/adani-panel.jpg}
+    - {name: Adani 590 Wp TOPCon Bifacial, model: 590 Wp, specs: [N-type TOPCon, Dual glass, Bifacial], image: /images/shop/adani-panel.jpg}
+- id: structures
+  category: Galvanised Structures
+  blurb: Hot-dip galvanised mounting structures for rooftop and utility-scale.
+  items:
+    - {name: Residential Rooftop Structure, model: Per kW, specs: [Hot-dip galvanised, Elevated rooftop design, Fasteners included], image: /images/shop/gi-rooftop.jpg}
+    - {name: Utility-Scale Ground-Mount Structure, model: Per MW, specs: [Hot-dip galvanised, Fixed tilt, Pile or foundation mount], image: /images/shop/gi-ground-mount.jpg}
+- id: acdb
+  category: ACDB Boxes
+  blurb: AC distribution boxes with MCB and surge protection.
+  items:
+    - {name: Single-Phase ACDB, model: 1 to 5 kW, specs: [MCB + AC SPD, UV-protected enclosure, 1 in 1 out], image: /images/shop/acdb.jpg}
+    - {name: Three-Phase ACDB, model: 10 to 50 kW, specs: [MCCB / MCB + AC SPD, IP-rated enclosure, 1 in 1 out], image: /images/shop/acdb.jpg}
