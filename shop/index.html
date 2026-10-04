@@ -23,7 +23,15 @@ sitemap: false
     .shop { padding: calc(var(--header-height) + var(--spacing-3xl)) var(--spacing-lg) var(--spacing-4xl); max-width: 1200px; margin: 0 auto; }
     .shop h1 { font-size: var(--font-size-2xl); color: var(--color-gray-900); margin-bottom: var(--spacing-sm); }
     .shop-intro { color: var(--color-gray-700); max-width: 640px; margin-bottom: var(--spacing-xl); }
-    .shop-nav { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-bottom: var(--spacing-2xl); }
+    .shop-layout { display: grid; grid-template-columns: 220px 1fr; gap: var(--spacing-2xl); align-items: start; }
+    .shop-nav { position: sticky; top: calc(var(--header-height) + var(--spacing-lg)); display: flex; flex-direction: column; gap: var(--spacing-xs); }
+    .shop-nav a { padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-lg); font-weight: 600; color: var(--color-gray-700); }
+    .shop-nav a:hover { background-color: var(--color-primary); color: var(--color-white); }
+    .shop h2 { scroll-margin-top: calc(var(--header-height) + var(--spacing-lg)); }
+    @media (max-width: 800px) {
+      .shop-layout { grid-template-columns: 1fr; gap: 0; }
+      .shop-nav { position: static; flex-direction: row; flex-wrap: wrap; margin-bottom: var(--spacing-lg); }
+    }
     .shop h2 { font-size: var(--font-size-xl); color: var(--color-gray-900); margin: var(--spacing-3xl) 0 var(--spacing-xs); }
     .shop-blurb { color: var(--color-gray-600); margin-bottom: var(--spacing-lg); }
     .shop .services-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
@@ -45,12 +53,14 @@ sitemap: false
       <h1>EPC Trade Shop</h1>
       <p class="shop-intro">Equipment supply for solar EPCs: Deye inverters, Adani panels, galvanised structures, ACDB boxes and ready packages. Dealer pricing on request: order on WhatsApp or add items to a quote.</p>
 
+      <div class="shop-layout">
       <nav class="shop-nav" aria-label="Shop categories">
         {% for group in site.data.shop %}
-        <a class="btn btn-outline btn-sm" href="#{{ group.id }}">{{ group.category }}</a>
+        <a href="#{{ group.id }}">{{ group.category }}</a>
         {% endfor %}
       </nav>
 
+      <div class="shop-main">
       {% for group in site.data.shop %}
       <section id="{{ group.id }}">
         <h2>{{ group.category }}</h2>
@@ -65,7 +75,7 @@ sitemap: false
               {% for s in item.specs %}<li>{{ s }}</li>{% endfor %}
             </ul>
             <div class="shop-actions">
-              <a class="btn btn-primary btn-sm" href="https://wa.me/917598483355?text={{ 'Hi, I would like a dealer quote for: ' | append: item.name | url_encode }}" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+              <a class="btn btn-primary btn-sm" href="https://wa.me/917598483355?text={{ 'Hi, I would like a dealer quote for: ' | append: item.name | url_encode }}" target="_blank" rel="noopener noreferrer">WhatsApp Order</a>
               <button type="button" class="btn btn-outline btn-sm" data-add-quote="{{ item.name | escape }}">Add to quote</button>
             </div>
           </article>
@@ -115,6 +125,8 @@ sitemap: false
           </div>
         </div>
       </section>
+      </div>
+      </div>
     </div>
   </main>
 
