@@ -53,7 +53,7 @@ sitemap: false
   </style>
 </head>
 <body>
-  {% include header.html %}
+  {% include header.html active="shop" %}
 
   <main role="main">
     <div class="shop">
@@ -145,6 +145,7 @@ sitemap: false
   </main>
 
   {% include footer.html %}
+  {% include whatsapp-float.html text='Hi, I would like a dealer quote for solar equipment.' %}
   <script src="{{ '/js/script.js' | relative_url }}"></script>
   <script>
     document.querySelectorAll('[data-add-quote]').forEach(function (btn) {
