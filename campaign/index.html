@@ -311,12 +311,16 @@
             const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
             const utm = new URLSearchParams(location.search);
 
+            const referrerCode = (utm.get('ref') || '').trim().toLowerCase().slice(0, 40) || null;
+
             const payload = {
                 name: document.getElementById('name').value,
                 phone_no: document.getElementById('phone').value,
                 bill_amount: parseInt(document.getElementById('monthly_bill').value, 10) || null,
                 city: document.getElementById('town').value,
-                source: 'campaign',
+                source: referrerCode ? 'partner-campaign' : 'campaign',
+                campaign: (utm.get('campaign') || utm.get('utm_campaign') || '').trim().slice(0, 60) || null,
+                referrer_code: referrerCode,
                 utm_source: utm.get('utm_source') || null,
                 utm_medium: utm.get('utm_medium') || null,
                 utm_campaign: utm.get('utm_campaign') || null,
